@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abdelrhman Elmsawy | Cybersecurity Engineer</title>
+
+<meta name="description" content="Cybersecurity & Network Security Engineer Portfolio of Abdelrhman Elmsawy">
+<meta property="og:title" content="Abdelrhman Elmsawy | Cybersecurity Engineer">
+<meta property="og:description" content="Cybersecurity & Network Security Portfolio">
+<meta property="og:image" content="profile.png">
+<meta property="og:type" content="website">
+<meta name="keywords" content="Cybersecurity, SOC, Network Security, Pentesting">
+<meta name="author" content="Abdelrhman Elmsawy">
+
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#080c14;
+  --bg2:#0d1220;
+  --bg3:#111827;
+  --green:#00ff88;
+  --cyan:#00d4ff;
+  --red:#ff4466;
+  --muted:#5a7a8a;
+  --text:#c8dde8;
+  --border:rgba(0,255,136,0.12);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Barlow',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* SCANLINE OVERLAY */
+body::before{
+  content:'';
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.07) 2px,
+    rgba(0,0,0,0.07) 4px
+  );
+  z-index:9999;
+}
+
+/* NOISE TEXTURE */
+body::after{
+  content:'';
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index:9998;
+}
+
+/* LAYOUT */
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 24px 60px;
+}
+
+/* TOP NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 24px;
+  background:rgba(13,18,32,0.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav-logo{
+  font-family:'Share Tech Mono',monospace;
+  color:var(--green);
+  font-size:13px;
+  letter-spacing:2px;
+}
+
+.nav-links{
+  display:flex;
+  gap:24px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.2s;
+}
+
+.nav-links a:hover{color:var(--green)}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+  padding:60px 0 50px;
+  border-bottom:1px solid var(--border);
+}
+
+.hero-left{}
+
+.status-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:rgba(0,255,136,0.07);
+  border:1px solid rgba(0,255,136,0.25);
+  border-radius:20px;
+  padding:5px 14px;
+  font-size:11px;
+  color:var(--green);
+  font-family:'Share Tech Mono',monospace;
+  letter-spacing:1px;
+  margin-bottom:22px;
+  animation:fadeUp .6s ease both;
+}
+
+.status-dot{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--green);
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,.5)}
+  50%{box-shadow:0 0 0 5px rgba(0,255,136,0)}
+}
+
+h1{
+  font-family:'Orbitron',monospace;
+  font-size:clamp(26px,4vw,46px);
+  font-weight:900;
+  line-height:1.1;
+  color:#fff;
+  animation:fadeUp .7s .1s ease both;
+}
+
+.name-accent{
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:block;
+}
+
+/* GLITCH */
+.glitch{
+  position:relative;
+  display:inline-block;
+}
+.glitch::before,.glitch::after{
+  content:attr(data-text);
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  font-family:'Orbitron',monospace;
+  font-weight:900;
+  font-size:inherit;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.glitch::before{
+  animation:glitch1 3.5s infinite;
+  clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%);
+}
+.glitch::after{
+  animation:glitch2 3.5s infinite;
+  clip-path:polygon(0 60%,100% 60%,100% 80%,0 80%);
+}
+
+@keyframes glitch1{
+  0%,90%,100%{transform:translate(0)}
+  92%{transform:translate(-3px,1px)}
+  94%{transform:translate(3px,-1px)}
+  96%{transform:translate(-2px,0)}
+}
+@keyframes glitch2{
+  0%,88%,100%{transform:translate(0)}
+  90%{transform:translate(2px,-2px)}
+  93%{transform:translate(-3px,2px)}
+  97%{transform:translate(1px,0)}
+}
+
+.hero-subtitle{
+  color:var(--muted);
+  font-size:14px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-top:10px;
+  font-family:'Share Tech Mono',monospace;
+  animation:fadeUp .7s .2s ease both;
+}
+
+.hero-bio{
+  margin-top:20px;
+  line-height:1.7;
+  font-size:15px;
+  color:#8ea8b8;
+  animation:fadeUp .7s .3s ease both;
+}
+
+.hero-tools{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--cyan);
+  font-family:'Share Tech Mono',monospace;
+  opacity:.8;
+  animation:fadeUp .7s .35s ease both;
+}
+
+.hero-buttons{
+  margin-top:28px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  animation:fadeUp .7s .45s ease both;
+}
+
+.btn{
+  padding:11px 22px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-decoration:none;
+  cursor:pointer;
+  border:none;
+  transition:all .2s;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+
+.btn-primary{
+  background:var(--green);
+  color:#060c10;
+}
+.btn-primary:hover{
+  background:#00ffaa;
+  box-shadow:0 0 20px rgba(0,255,136,.4);
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--cyan);
+  color:var(--cyan);
+}
+.btn-outline:hover{
+  background:rgba(0,212,255,.1);
+  box-shadow:0 0 16px rgba(0,212,255,.3);
+  transform:translateY(-2px);
+}
+
+.btn-ghost{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.1);
+  color:var(--text);
+}
+.btn-ghost:hover{
+  border-color:rgba(255,255,255,.25);
+  transform:translateY(-2px);
+}
+
+/* TERMINAL */
+.terminal-wrap{
+  animation:fadeUp .7s .5s ease both;
+}
+
+.terminal{
+  background:#050810;
+  border:1px solid rgba(0,255,136,.2);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 0 40px rgba(0,255,136,.07), inset 0 0 20px rgba(0,0,0,.5);
+}
+
+.terminal-bar{
+  background:rgba(0,255,136,.06);
+  padding:10px 16px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border-bottom:1px solid rgba(0,255,136,.1);
+}
+
+.t-dot{width:10px;height:10px;border-radius:50%}
+.t-dot.r{background:#ff4466}
+.t-dot.y{background:#ffcc00}
+.t-dot.g{background:#00ff88}
+
+.terminal-label{
+  margin-left:auto;
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:2px;
+}
+
+.console{
+  padding:16px;
+  height:220px;
+  overflow-y:auto;
+  font-family:'Share Tech Mono',monospace;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.console::-webkit-scrollbar{width:4px}
+.console::-webkit-scrollbar-thumb{background:rgba(0,255,136,.2);border-radius:2px}
+
+.log-ok{color:var(--green)}
+.log-info{color:var(--cyan)}
+.log-warn{color:#ffcc00}
+.log-err{color:var(--red)}
+.log-dim{color:var(--muted)}
+
+.cursor{
+  display:inline-block;
+  width:8px;height:13px;
+  background:var(--green);
+  animation:blink .8s step-end infinite;
+  vertical-align:middle;
+  margin-left:2px;
+}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* SECTIONS */
+section{padding:50px 0;border-bottom:1px solid var(--border)}
+section:last-child{border-bottom:none}
+
+.section-label{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;
+  color:var(--green);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.section-title{
+  font-family:'Orbitron',monospace;
+  font-size:22px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:28px;
+}
+
+/* STATS */
+.stats-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
+  margin-bottom:40px;
+}
+
+.stat-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:20px;
+  text-align:center;
+  transition:.3s;
+}
+
+.stat-card:hover{
+  border-color:rgba(0,255,136,.35);
+  box-shadow:0 0 20px rgba(0,255,136,.08);
+  transform:translateY(-3px);
+}
+
+.stat-num{
+  font-family:'Orbitron',monospace;
+  font-size:32px;
+  font-weight:700;
+  color:var(--green);
+}
+
+.stat-label{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:4px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* PROJECTS */
+.proj-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+}
+
+.proj{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:22px;
+  text-decoration:none;
+  color:var(--text);
+  transition:.3s;
+  display:block;
+  position:relative;
+  overflow:hidden;
+}
+
+.proj::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:.3s;
+}
+
+.proj:hover{
+  transform:translateY(-5px);
+  border-color:rgba(0,255,136,.3);
+  box-shadow:0 8px 30px rgba(0,0,0,.4), 0 0 20px rgba(0,255,136,.08);
+}
+
+.proj:hover::before{transform:scaleX(1)}
+
+.proj-tag{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;
+  color:var(--cyan);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  display:block;
+}
+
+.proj h3{
+  font-family:'Orbitron',monospace;
+  font-size:15px;
+  color:#fff;
+  margin-bottom:8px;
+}
+
+.proj p{
+  font-size:13px;
+  color:#6a8898;
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+.proj-tools{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.tool-badge{
+  background:rgba(0,212,255,.08);
+  border:1px solid rgba(0,212,255,.2);
+  color:var(--cyan);
+  font-size:10px;
+  padding:3px 9px;
+  border-radius:4px;
+  font-family:'Share Tech Mono',monospace;
+}
+
+.proj-link{
+  position:absolute;
+  bottom:18px;
+  right:18px;
+  color:var(--green);
+  font-size:11px;
+  font-family:'Share Tech Mono',monospace;
+  opacity:0;
+  transition:.3s;
+  letter-spacing:1px;
+}
+
+.proj:hover .proj-link{opacity:1}
+
+/* SKILLS */
+.skills-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.skill-group{}
+
+.skill-group-title{
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;
+  color:var(--cyan);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(0,212,255,.15);
+}
+
+.skill-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+  gap:12px;
+}
+
+.skill-name{font-size:13px;color:var(--text);min-width:100px}
+
+.skill-bar-wrap{
+  flex:1;
+  height:5px;
+  background:rgba(255,255,255,.05);
+  border-radius:3px;
+  overflow:hidden;
+}
+
+.skill-bar{
+  height:100%;
+  border-radius:3px;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+  animation:fillBar 1.5s ease both;
+}
+
+@keyframes fillBar{from{width:0}}
+
+.skill-pct{
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;
+  color:var(--muted);
+  min-width:32px;
+  text-align:right;
+}
+
+/* CERTS */
+.certs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+
+.cert-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:18px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  transition:.3s;
+}
+
+.cert-card:hover{
+  border-color:rgba(0,255,136,.25);
+  transform:translateY(-3px);
+}
+
+.cert-icon{
+  font-size:22px;
+  flex-shrink:0;
+}
+
+.cert-name{
+  font-weight:600;
+  font-size:13px;
+  color:#fff;
+  margin-bottom:3px;
+}
+
+/* رابط الشهادة */
+.cert-name a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.cert-name a:hover{
+  color:var(--green);
+}
+
+.cert-issuer{
+  font-size:11px;
+  color:var(--muted);
+  font-family:'Share Tech Mono',monospace;
+}
+
+.cert-status{
+  display:inline-block;
+  margin-top:6px;
+  font-size:10px;
+  padding:2px 8px;
+  border-radius:10px;
+  font-family:'Share Tech Mono',monospace;
+}
+
+.cert-status.active{
+  background:rgba(0,255,136,.1);
+  color:var(--green);
+  border:1px solid rgba(0,255,136,.25);
+}
+
+.cert-status.progress{
+  background:rgba(255,204,0,.08);
+  color:#ffcc00;
+  border:1px solid rgba(255,204,0,.2);
+}
+
+
+/* CONTACT SIDEBAR LAYOUT */
+.bottom-layout{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:30px;
+}
+
+/* CONTACT */
+.contact-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:24px;
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  text-decoration:none;
+  color:var(--text);
+  transition:.2s;
+  font-size:14px;
+}
+
+.contact-item:last-child{border-bottom:none}
+
+.contact-item:hover{color:#fff}
+.contact-item:hover .c-icon{color:var(--green)}
+
+.c-icon{
+  width:36px;height:36px;
+  background:rgba(255,255,255,.04);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  transition:.2s;
+  flex-shrink:0;
+}
+
+/* SOCIALS */
+.socials-section{margin-top:20px}
+
+.socials-title{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.socials{display:flex;gap:8px;flex-wrap:wrap}
+
+.socials a{
+  width:40px;height:40px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  transition:.25s;
+}
+
+.socials a:hover{
+  background:rgba(0,212,255,.12);
+  border-color:var(--cyan);
+  box-shadow:0 0 12px rgba(0,212,255,.25);
+  transform:translateY(-3px);
+}
+
+.socials img{width:17px;filter:invert(1);opacity:.7}
+.socials a:hover img{opacity:1}
+
+/* FOCUS */
+.focus-card{
+  background:linear-gradient(135deg,rgba(0,255,136,.05),rgba(0,212,255,.05));
+  border:1px solid rgba(0,255,136,.15);
+  border-radius:12px;
+  padding:20px 24px;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.focus-card strong{color:var(--green)}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px 24px;
+  color:var(--muted);
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  border-top:1px solid var(--border);
+}
+
+footer span{color:var(--green)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.fade-in{animation:fadeUp .7s ease both}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .terminal-wrap{order:-1}
+  .skills-layout{grid-template-columns:1fr}
+  .bottom-layout{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+  nav .nav-links{display:none}
+  h1{font-size:24px}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .hero{padding:40px 0 30px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">// AE_SECURITY</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+
+  <div class="hero-left">
+
+    <!-- صورة البروفايل -->
+    <img src="profile.png" alt="Abdelrhman Elmsawy"
+         style="width:90px;height:90px;border-radius:50%;
+                object-fit:cover;border:2px solid rgba(0,255,136,0.4);
+                box-shadow:0 0 20px rgba(0,255,136,0.2);
+                margin-bottom:20px;display:block;">
+
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      Available for Projects
+    </div>
+
+    <h1>
+      <span class="glitch name-accent" data-text="Abdelrhman">Abdelrhman</span><br>
+      Elmsawy
+    </h1>
+
+    <div class="hero-subtitle">Cybersecurity & Network Security Engineer</div>
+
+    <p class="hero-bio">
+      Focused on securing networks, identifying vulnerabilities, and building
+      resilient infrastructure for real-world environments. Passionate about
+      offensive and defensive security research.
+    </p>
+
+    <div class="hero-tools">
+      &gt; Kali Linux · Active Directory · Enterprise Networks
+    </div>
+
+    <div class="hero-buttons">
+
+      <a href="https://drive.google.com/drive/folders/119OAnsNm6Udk0h6eppD9zlCO8YToAmze"
+         target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        ⚡ View Projects
+      </a>
+
+      <!-- زر CV -->
+      <a href="cv.pdf" download="Abdelrhman_Elmsawy_CV.pdf"
+         class="btn btn-outline">
+        ↓ Download CV
+      </a>
+
+      <!-- زر WhatsApp -->
+      <a href="https://wa.me/201277177026"
+         target="_blank"
+         class="btn btn-outline">
+        WhatsApp
+      </a>
+
+    </div>
+  </div>
+
+  <!-- TERMINAL -->
+  <div class="terminal-wrap">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="t-dot r"></span>
+        <span class="t-dot y"></span>
+        <span class="t-dot g"></span>
+        <span class="terminal-label">SECURITY OPS CONSOLE</span>
+      </div>
+      <div class="console" id="terminal-output"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- باقي الأقسام -->
+
+
+<!-- STATS -->
+<section class="fade-in">
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Lab Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Tools Mastered</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">SOC</div>
+      <div class="stat-label">Current Focus</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">EG</div>
+      <div class="stat-label">Based in Egypt</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade-in">
+  <div class="section-label">// 01</div>
+  <div class="section-title">Lab Projects</div>
+
+  <div class="proj-grid">
+
+    <a class="proj" href="https://drive.google.com/drive/folders/119OAnsNm6Udk0h6eppD9zlCO8YToAmze"
+       target="_blank" rel="noopener noreferrer">
+      <span class="proj-tag">Network Security</span>
+      <h3>Enterprise Network Lab</h3>
+      <p>Built a secure enterprise network with VLANs, ACLs, and firewall rules. Simulated real-world traffic segmentation and threat containment scenarios.</p>
+      <div class="proj-tools">
+        <span class="tool-badge">Cisco</span>
+        <span class="tool-badge">GNS3</span>
+        <span class="tool-badge">VLANs</span>
+        <span class="tool-badge">Firewall</span>
+      </div>
+      <span class="proj-link">View Lab →</span>
+    </a>
+
+    <a class="proj" href="https://drive.google.com/drive/folders/119OAnsNm6Udk0h6eppD9zlCO8YToAmze"
+       target="_blank" rel="noopener noreferrer">
+      <span class="proj-tag">Offensive Security</span>
+      <h3>Web Pentest Lab</h3>
+      <p>Conducted web vulnerability assessments including SQLi, XSS, and CSRF attacks. Documented findings and provided remediation recommendations.</p>
+      <div class="proj-tools">
+        <span class="tool-badge">Burp Suite</span>
+        <span class="tool-badge">OWASP</span>
+        <span class="tool-badge">Python</span>
+      </div>
+      <span class="proj-link">View Lab →</span>
+    </a>
+
+    <a class="proj" href="https://drive.google.com/drive/folders/119OAnsNm6Udk0h6eppD9zlCO8YToAmze"
+       target="_blank" rel="noopener noreferrer">
+      <span class="proj-tag">Blue Team</span>
+      <h3>SOC Simulation</h3>
+      <p>Simulated attack scenarios and built detection rules. Performed log analysis, alert triage, and incident response documentation in a lab environment.</p>
+      <div class="proj-tools">
+        <span class="tool-badge">Wireshark</span>
+        <span class="tool-badge">SIEM</span>
+        <span class="tool-badge">Splunk</span>
+      </div>
+      <span class="proj-link">View Lab →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade-in">
+  <div class="section-label">// 02</div>
+  <div class="section-title">Skills &amp; Tools</div>
+
+  <div class="skills-layout">
+
+    <div class="skill-group">
+      <div class="skill-group-title">Offensive Security</div>
+      <div class="skill-item">
+        <span class="skill-name">Metasploit</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Burp Suite</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
+        <span class="skill-pct">75%</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Kali Linux</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Python</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
+        <span class="skill-pct">70%</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Network &amp; Infrastructure</div>
+      <div class="skill-item">
+        <span class="skill-name">Cisco / GNS3</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Wireshark</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Active Directory</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
+        <span class="skill-pct">70%</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Linux Admin</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+        <span class="skill-pct">78%</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs" class="fade-in">
+  <div class="section-label">// 03</div>
+  <div class="section-title">Certifications</div>
+
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-icon">🌐</div>
+      <div>
+        <div class="cert-name">
+          <a href="Network_infrastructure.pdf" download>
+            Network Infrastructure
+          </a>
+        </div>
+        <div class="cert-issuer">NTI / ITIDA</div>
+        <span class="cert-status active">Certified</span>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🌐</div>
+      <div>
+        <div class="cert-name">CCNA</div>
+        <div class="cert-issuer">CISCO</div>
+        <span class="cert-status progress">In Progress</span>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">💻</div>
+      <div>
+        <div class="cert-name">eJPT</div>
+        <div class="cert-issuer">eLearnSecurity</div>
+        <span class="cert-status progress">Studying</span>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🎯</div>
+      <div>
+        <div class="cert-name">CEH</div>
+        <div class="cert-issuer">EC-COUNCIL</div>
+        <span class="cert-status progress">Target 2025</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:16px;font-size:12px;color:var(--muted);font-family:'Share Tech Mono',monospace">
+    * Update cert statuses as you earn them — showing roadmap builds recruiter confidence
+  </div>
+</section>
+
+
+<!-- CONTACT + FOCUS -->
+<section id="contact" class="fade-in">
+  <div class="section-label">// 04</div>
+  <div class="section-title">Get In Touch</div>
+
+  <div class="bottom-layout">
+
+    <div>
+      <div class="contact-card">
+        <a class="contact-item" href="mailto:abdelrhman.elmsawy@gmail.com">
+          <div class="c-icon">✉</div>
+          abdelrhman.elmsawy@gmail.com
+        </a>
+        <a class="contact-item" href="tel:+201277177026">
+          <div class="c-icon">📞</div>
+          +20 1277 177 026
+        </a>
+        <a class="contact-item"
+           href="https://www.linkedin.com/in/abdelrhman-elmsawy"
+           target="_blank" rel="noopener noreferrer">
+          <div class="c-icon">in</div>
+          linkedin.com/in/abdelrhman-elmsawy
+        </a>
+        <a class="contact-item"
+           href="https://github.com/abdelrhman-elmsawy"
+           target="_blank" rel="noopener noreferrer">
+          <div class="c-icon">⌥</div>
+          github.com/abdelrhman-elmsawy
+        </a>
+      </div>
+
+      <div class="socials-section">
+        <div class="socials-title">Social Profiles</div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/abdelrhman-elmsawy" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/abdelrhman-elmsawy" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+          </a>
+          <a href="https://facebook.com/abdelrhman.elmsawy" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://instagram.com/abdelrhman.elmsawy/" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+          </a>
+          <a href="https://x.com/abdelrhman20000" target="_blank" rel="noopener noreferrer" title="X / Twitter">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X">
+          </a>
+          <a href="https://www.tiktok.com/@abdelrhman.elmsawy" target="_blank" rel="noopener noreferrer" title="TikTok">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="focus-card">
+        <p style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:3px;margin-bottom:12px">CURRENT FOCUS</p>
+        <p>
+          🎯 Currently deep-diving into <strong>SOC analysis</strong> and
+          <strong>enterprise pentesting</strong>. Building labs that simulate real
+          attack chains — from initial recon to post-exploitation.
+        </p>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted)">
+          Open to freelance security projects, internships, and collaborative lab work.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <span>Abdelrhman Elmsawy</span> · Cybersecurity Portfolio · © 2026
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const logs = [
+  { cls:'log-dim',  txt:'[sys]  booting security console...' },
+  { cls:'log-ok',   txt:'[ok]   kernel modules loaded' },
+  { cls:'log-info', txt:'[net]  interface eth0 UP — 192.168.1.x' },
+  { cls:'log-ok',   txt:'[auth] ssh keypair verified' },
+  { cls:'log-info', txt:'[scan] starting network reconnaissance...' },
+  { cls:'log-warn', txt:'[warn] 3 open ports detected on target' },
+  { cls:'log-info', txt:'[enum] running service fingerprint' },
+  { cls:'log-ok',   txt:'[ok]   nmap scan complete' },
+  { cls:'log-info', txt:'[msf]  loading exploit framework...' },
+  { cls:'log-ok',   txt:'[ok]   metasploit ready' },
+  { cls:'log-info', txt:'[ad]   enumerating active directory' },
+  { cls:'log-warn', txt:'[warn] weak credentials found: guest account' },
+  { cls:'log-ok',   txt:'[ok]   report generated — 7 findings' },
+  { cls:'log-info', txt:'[soc]  monitoring SIEM dashboard...' },
+  { cls:'log-ok',   txt:'[ok]   0 critical alerts — all clear' },
+  { cls:'log-dim',  txt:'[sys]  session active ▋' },
+];
+
+const el = document.getElementById('terminal-output');
+let i = 0;
+
+function addLine() {
+  const entry = logs[i % logs.length];
+  const div = document.createElement('div');
+  div.className = entry.cls;
+  div.textContent = entry.txt;
+  el.appendChild(div);
+  el.scrollTop = el.scrollHeight;
+  i++;
+  // After last line, pause longer
+  setTimeout(addLine, i % logs.length === 0 ? 3000 : 600 + Math.random()*400);
+}
+
+setTimeout(addLine, 400);
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.style.animation = 'fadeUp .7s ease both';
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
