@@ -10,8 +10,8 @@
   <meta property="og:description" content="Portfolio of Abdelrhman Elmsawy — Networking, Network Security, Vulnerability Assessment and Penetration Testing.">
   <meta property="og:type" content="website">
   <title>Abdelrhman Elmsawy | Network Security & Pentesting</title>
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="ae-logo.svg" type="image/svg+xml">
+  <link rel="icon" href="ae-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -59,7 +59,8 @@
     }
     [data-theme="light"] nav{background:rgba(244,248,246,.78)}
     .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font:700 14px "Share Tech Mono",monospace;color:var(--green);letter-spacing:2px;text-decoration:none}
+    .brand{display:inline-flex;align-items:center;gap:9px;font:700 14px "Share Tech Mono",monospace;color:var(--green);letter-spacing:2px;text-decoration:none}
+    .brand-mark{width:27px;height:27px;display:block;filter:drop-shadow(0 0 8px rgba(0,255,136,.18))}
     .nav-links{display:flex;gap:24px;list-style:none}
     .nav-links a{font:600 12px "Share Tech Mono",monospace;text-transform:uppercase;letter-spacing:1px;text-decoration:none;color:var(--muted);transition:.2s}
     .nav-links a:hover,.nav-links a.active{color:var(--green)}
@@ -81,6 +82,9 @@
     .profile-frame:before{content:"";position:absolute;inset:-8px;border:1px solid rgba(0,255,136,.12);border-radius:43px;animation:profilePulse 3s ease-in-out infinite}
     .profile{width:100%;height:100%;border-radius:37px;object-fit:cover;display:block;border:1px solid rgba(0,255,136,.28);background:linear-gradient(135deg,#0a1710,#06100b);box-shadow:inset 0 0 30px rgba(0,0,0,.45)}
     @keyframes profilePulse{50%{transform:scale(1.025);opacity:.55}}
+    .profile-brand{object-fit:contain !important;padding:16px;background:linear-gradient(145deg,#08140e,#061019);filter:drop-shadow(0 0 18px rgba(57,184,106,.16))}
+    .footer-brand{display:inline-flex;align-items:center;gap:7px}
+    .footer-brand img{width:18px;height:18px;vertical-align:middle}
     .hero-name-row{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
     .hello{font:12px "Share Tech Mono";letter-spacing:3px;color:var(--green);margin-bottom:8px}
     .hello:before{content:"";display:inline-block;width:18px;height:1px;background:var(--green);vertical-align:middle;margin-right:9px}
@@ -288,7 +292,7 @@
 
   <nav>
     <div class="container nav-inner">
-      <a class="brand" href="#home">// AE_SECURITY</a>
+      <a class="brand" href="#home"><img class="brand-mark" src="ae-logo.svg" alt="" aria-hidden="true"><span>// AE_SECURITY</span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li><li><a href="#training">Training</a></li><li><a href="#contact">Contact</a></li>
@@ -308,7 +312,7 @@
 
         <div class="hero-portrait">
           <div class="profile-frame">
-            <img class="profile" src="profile.png" alt="Abdelrhman Elmsawy">
+            <img class="profile" src="profile.png" alt="Abdelrhman Elmsawy" onerror="this.onerror=null;this.src='ae-logo.png';this.classList.add('profile-brand')">
           </div>
           <div class="portrait-status"><strong>● OPEN TO OPPORTUNITIES</strong></div>
         </div>
@@ -636,7 +640,7 @@
       </div>
     </section>
 
-  <footer><span>Abdelrhman Elmsawy</span> · Network Security & Cybersecurity Portfolio · © <span id="year"></span></footer>
+  <footer><span class="footer-brand"><img src="ae-logo.svg" alt="" aria-hidden="true"> <span>Abdelrhman Elmsawy</span></span> · Network Security & Cybersecurity Portfolio · © <span id="year"></span></footer>
 
   <button class="icon-btn" id="top" aria-label="Back to top">↑</button>
 
