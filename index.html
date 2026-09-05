@@ -558,13 +558,13 @@
             <div class="training-top"><h3>Multivendor Firewall Solutions</h3><span class="period">JAN–FEB 2026</span></div>
             <div class="issuer">NTI · DIGITAL EGYPT YOUTH PROGRAM</div>
             <p>Firewall deployment, security policies, traffic filtering, access control and network protection concepts.</p>
-            <div class="cert-row"><span class="score">FINAL EVALUATION · 92%</span><button class="btn cert-btn" data-cert="certificates/multivendor-firewall.pdf">VIEW CERTIFICATE ↗</button></div>
+            <div class="cert-row"><span class="score">FINAL EVALUATION · 92%</span><a class="btn cert-btn" href="certificates/multivendor-firewall.pdf" target="_blank" rel="noopener">VIEW CERTIFICATE ↗</a></div>
           </article>
           <article class="training certificate-card completed">
             <div class="training-top"><h3>Network Infrastructure Training</h3><span class="period">AUG–SEP 2025</span></div>
             <div class="issuer">NTI & ITIDA · 120 HOURS</div>
             <p>Networking fundamentals, routing & switching, network infrastructure and IT operations.</p>
-            <div class="cert-row"><span class="score">FINAL EVALUATION · 97%</span><button class="btn cert-btn" data-cert="certificates/network-infrastructure.pdf">VIEW CERTIFICATE ↗</button></div>
+            <div class="cert-row"><span class="score">FINAL EVALUATION · 97%</span><a class="btn cert-btn" href="certificates/network-infrastructure.pdf" target="_blank" rel="noopener">VIEW CERTIFICATE ↗</a></div>
           </article>
         </div>
       </div>
@@ -783,7 +783,8 @@
     document.getElementById("modalClose").onclick=closeModal;modal.onclick=e=>{if(e.target===modal)closeModal()};
 
     // Copy email
-    document.getElementById("copyEmail").onclick=async()=>{try{await navigator.clipboard.writeText(EMAIL);const b=document.getElementById("copyEmail");const old=b.textContent;b.textContent="✓ Copied";setTimeout(()=>b.textContent=old,1500)}catch{location.href="mailto:"+EMAIL}};
+    const copyEmailBtn=document.getElementById("copyEmail");
+    if(copyEmailBtn) copyEmailBtn.onclick=async()=>{try{await navigator.clipboard.writeText(EMAIL);const old=copyEmailBtn.textContent;copyEmailBtn.textContent="✓ Copied";setTimeout(()=>copyEmailBtn.textContent=old,1500)}catch{location.href="mailto:"+EMAIL}};
 
     // Certificate viewer — completed certificates only
     const certModal=document.getElementById("certModal"), certFrame=document.getElementById("certFrame"), certOpen=document.getElementById("certOpen"), certStatus=document.getElementById("certStatus");
