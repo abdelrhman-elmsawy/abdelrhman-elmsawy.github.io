@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07110d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="description" content="Abdelrhman Elmsawy — Communications & Computer Engineering student focused on Networking, Network Security and Penetration Testing.">
   <meta name="author" content="Abdelrhman Elmsawy">
   <meta property="og:title" content="Abdelrhman Elmsawy | Network Security & Pentesting">
@@ -37,6 +40,16 @@
       radial-gradient(circle at 15% 10%,rgba(0,255,136,.07),transparent 30%),
       radial-gradient(circle at 85% 35%,rgba(0,217,255,.06),transparent 28%),var(--bg);
       color:var(--text);overflow-x:hidden;line-height:1.6;
+    }
+    html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
+    body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;min-width:320px}
+    img,svg,video,iframe{max-width:100%}
+    button,input,a{-webkit-appearance:none;appearance:none}
+    button,a{touch-action:manipulation}
+    @supports (-webkit-touch-callout:none){
+      body{min-height:100svh}
+      nav{padding-top:env(safe-area-inset-top)}
+      #top{bottom:calc(20px + env(safe-area-inset-bottom))}
     }
     body::before{
       content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;
@@ -280,6 +293,307 @@
       .stats{grid-template-columns:1fr 1fr}.search{width:100%;min-width:0}.toolbar{align-items:stretch}
       h1{letter-spacing:-1px}.terminal-body{height:270px}
     }
+    /* RESPONSIVE / MOBILE / TABLET — TOUCH-FIRST */
+    @media (max-width:1100px){
+      :root{--max:1040px}
+      .container{width:min(var(--max),calc(100% - 32px))}
+      .hero{grid-template-columns:140px minmax(0,1fr);gap:24px}
+      .hero-portrait{grid-column:1}
+      .hero-copy-wrap{grid-column:2}
+      .terminal-wrap{grid-column:1 / -1;max-width:none;margin-top:22px}
+      .terminal{max-width:none}
+      .trusted-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .projects{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @media (max-width:900px){
+      .nav-inner{height:66px}
+      .nav-cv{display:none}
+      .nav-actions{gap:7px}
+      .icon-btn,.menu-btn{width:42px;height:42px;min-width:42px}
+      .hero{min-height:auto;padding:44px 0 50px}
+      .hero-copy{font-size:16px}
+      .hero-lead{font-size:16px}
+      .terminal-body{height:300px}
+      .trusted-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .two-col,.contact{gap:24px}
+      .training-top{align-items:flex-start;flex-direction:column;gap:7px}
+      .training .period{white-space:normal}
+      .modal{padding:12px}
+      .modal-box{padding:22px}
+    }
+
+    /* iPad / tablets: spacious cards and comfortable touch targets */
+    @media (min-width:681px) and (max-width:900px){
+      .hero-portrait{padding-top:8px}
+      .profile-frame{width:150px;height:180px}
+      .hero-actions .btn,.hero-contact .btn{min-height:46px}
+      .filter,.search,.details,.repo-link,.cert-btn{min-height:44px}
+      .project{min-height:410px}
+      .terminal-body{height:320px}
+      .skills{grid-template-columns:1fr 1fr}
+      .training-grid{grid-template-columns:1fr}
+    }
+
+    /* iPhone / Android phones */
+    @media (max-width:680px){
+      :root{--radius:15px}
+      html{scroll-padding-top:72px}
+      .container{width:calc(100% - 24px)}
+
+      nav{
+        -webkit-backdrop-filter:blur(18px);
+        backdrop-filter:blur(18px);
+      }
+      .nav-inner{height:62px}
+      .brand{font-size:11px;letter-spacing:1.2px;gap:7px}
+      .brand-mark{width:24px;height:24px}
+      .nav-actions{gap:5px}
+      .icon-btn,.menu-btn{width:42px;height:42px;min-width:42px;border-radius:11px}
+
+      .nav-links.mobile-open{
+        top:62px;
+        padding:8px 12px calc(12px + env(safe-area-inset-bottom));
+        border-bottom-left-radius:14px;
+        border-bottom-right-radius:14px;
+        box-shadow:0 18px 45px rgba(0,0,0,.28);
+      }
+      .nav-links.mobile-open a{
+        min-height:46px;
+        display:flex;
+        align-items:center;
+        border-radius:9px;
+      }
+
+      section{padding:58px 0}
+      .hero{
+        grid-template-columns:1fr;
+        gap:22px;
+        padding:38px 0 44px;
+        text-align:center;
+      }
+      .hero-portrait,.hero-copy-wrap,.terminal-wrap{grid-column:auto}
+      .hero-portrait{order:0}
+      .hero-copy-wrap{order:1}
+      .terminal-wrap{order:2;margin-top:3px;text-align:left}
+
+      .profile-frame{
+        width:116px;
+        height:138px;
+        margin:0 auto 13px;
+        border-radius:30px;
+      }
+      .profile{border-radius:25px}
+      .portrait-status{font-size:9px}
+
+      .hello{font-size:10px;letter-spacing:2.4px}
+      .hello:before{width:14px;margin-right:7px}
+      h1{
+        font-size:clamp(31px,10.5vw,48px);
+        line-height:1.05;
+        letter-spacing:-1.3px;
+        white-space:normal;
+      }
+      .hero-name-row{justify-content:center}
+      .hero-lead{font-size:15px;line-height:1.45;margin-top:11px}
+      .hero-role{font-size:12px;line-height:1.55;margin-top:8px}
+      .hero-copy{
+        font-size:14px;
+        line-height:1.75;
+        margin:17px auto 0;
+        max-width:560px;
+      }
+
+      .hero-contact,.hero-actions{
+        width:100%;
+        justify-content:center;
+      }
+      .hero-contact{margin-top:15px}
+      .hero-actions{margin-top:12px}
+      .hero-contact .btn,.hero-actions .btn{
+        min-height:46px;
+        flex:1 1 calc(50% - 7px);
+        padding:11px 10px;
+        font-size:10px;
+      }
+      .hero-contact .btn:first-child{flex-basis:100%}
+      .hero-focus{
+        justify-content:center;
+        font-size:9px;
+        line-height:1.9;
+        margin-top:15px;
+      }
+      .hero-metrics{
+        grid-template-columns:1fr;
+        gap:7px;
+        max-width:360px;
+        margin:18px auto 0;
+      }
+      .hero-metric{padding:10px}
+      .hero-metric b{font-size:13px}
+
+      .terminal-badge{
+        padding:9px 10px;
+        font-size:8px;
+        margin-bottom:9px;
+      }
+      .terminal-badge strong{font-size:8px}
+      .terminal-head{padding:11px 12px}
+      .terminal-body{
+        height:245px;
+        padding:14px;
+        font-size:10.5px;
+        line-height:1.8;
+        overflow:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+      .terminal-title{
+        max-width:52%;
+        font-size:8px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+      }
+
+      .trusted-strip{padding:26px 0 30px}
+      .trusted-grid{grid-template-columns:1fr 1fr;gap:9px}
+      .trusted-item{
+        min-height:146px;
+        padding:10px 8px;
+        border-radius:12px;
+      }
+      .org-logo{height:76px;flex-basis:76px;padding:6px}
+      .trusted-item strong{font-size:10px;white-space:normal}
+      .trusted-item span{font-size:8px}
+
+      .section-title{
+        font-size:clamp(24px,7.8vw,34px);
+        line-height:1.15;
+        margin-bottom:22px;
+      }
+      .eyebrow{font-size:9px;letter-spacing:3px}
+      .stats,.projects,.skills,.training-grid,.social-grid,.two-col,.contact{
+        grid-template-columns:1fr;
+      }
+      .stats{gap:9px}
+      .stat{padding:17px}
+      .stat-number{font-size:27px}
+
+      .card,.skill-group,.training,.contact-card,.availability{
+        padding:18px;
+        border-radius:14px;
+      }
+      .card h3,.training h3{font-size:14px}
+      .card p,.training p{font-size:13px;line-height:1.7}
+
+      .toolbar{
+        align-items:stretch;
+        flex-direction:column;
+        gap:10px;
+      }
+      .filters{
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:7px;
+      }
+      .filter,.search{min-height:45px}
+      .search{width:100%;min-width:0}
+      .projects{gap:11px}
+      .project{
+        min-height:0;
+        padding:13px;
+        border-radius:14px;
+      }
+      .project-media{height:132px;margin-bottom:13px}
+      .project h3{font-size:14px}
+      .project p{font-size:12px;line-height:1.7}
+      .project-actions{flex-direction:column;gap:7px}
+      .details,.repo-link{
+        width:100%;
+        min-height:44px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .skill-list{gap:6px}
+      .skill{padding:7px 8px;font-size:11px}
+      .skill small{font-size:8px}
+
+      .training-top{gap:6px}
+      .training .period{font-size:9px}
+      .cert-row{
+        align-items:stretch;
+        gap:8px;
+      }
+      .cert-row .btn{
+        width:100%;
+        min-height:45px;
+      }
+
+      .contact-list{gap:8px}
+      .contact-item{
+        min-height:58px;
+        padding:10px;
+        font-size:12px;
+        word-break:break-word;
+      }
+      .contact-icon{width:42px;height:42px;flex-basis:42px}
+
+      .social-heading{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:8px;
+      }
+      .social-card{min-height:76px;padding:12px}
+      .social-icon{width:42px;height:42px;flex-basis:42px}
+      .social-card strong{font-size:11px}
+
+      .modal{padding:8px}
+      .modal-box{
+        width:100%;
+        max-height:92svh;
+        overflow:auto;
+        padding:18px;
+        border-radius:15px;
+      }
+      .modal-close{
+        right:9px;
+        top:9px;
+        width:40px;
+        height:40px;
+      }
+      .certModal .modal-box{height:94svh}
+      .certModal iframe{min-height:60vh}
+
+      #top{
+        right:12px;
+        bottom:calc(12px + env(safe-area-inset-bottom));
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width:380px){
+      .container{width:calc(100% - 18px)}
+      .brand{font-size:10px}
+      .nav-actions{gap:3px}
+      .icon-btn,.menu-btn{width:40px;height:40px;min-width:40px}
+      .hero-contact .btn,.hero-actions .btn{font-size:9px;padding:10px 8px}
+      .hero-copy{font-size:13px}
+      .chip{font-size:9px;padding:5px 6px}
+      .project-media{height:120px}
+    }
+
+    @media (hover:none){
+      .project:hover,.training:hover,.trusted-item:hover,.social-card:hover,.contact-item:hover,
+      .btn:hover,.icon-btn:hover,.menu-btn:hover{
+        transform:none;
+        box-shadow:none;
+      }
+    }
+
     @media(prefers-reduced-motion:reduce){
       *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
       .reveal{opacity:1;transform:none}
@@ -673,7 +987,7 @@
         <div style="display:flex;gap:8px;align-items:center"><a id="certOpen" class="btn" href="#" target="_blank" rel="noopener" style="font-size:10px">OPEN PDF ↗</a><button class="icon-btn" id="certClose" aria-label="Close certificate">×</button></div>
       </div>
       <div id="certStatus" style="display:none;margin:0 0 8px;padding:10px;border:1px solid rgba(255,180,0,.2);border-radius:9px;color:var(--muted);font:10px 'Share Tech Mono'">Certificate PDF path is ready — add the completed certificate file to the certificates/ folder.</div>
-      <iframe id="certFrame" title="Certificate PDF" style="width:100%;height:100%;border:1px solid var(--line);border-radius:10px;background:#fff"></iframe>
+      <iframe id="certFrame" title="Certificate PDF" style="width:100%;height:100%;min-height:55vh;border:1px solid var(--line);border-radius:10px;background:#fff"></iframe>
     </div>
   </div>
 
