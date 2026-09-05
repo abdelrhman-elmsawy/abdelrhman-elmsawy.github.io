@@ -786,20 +786,7 @@
     const copyEmailBtn=document.getElementById("copyEmail");
     if(copyEmailBtn) copyEmailBtn.onclick=async()=>{try{await navigator.clipboard.writeText(EMAIL);const old=copyEmailBtn.textContent;copyEmailBtn.textContent="✓ Copied";setTimeout(()=>copyEmailBtn.textContent=old,1500)}catch{location.href="mailto:"+EMAIL}};
 
-    // Certificate viewer — completed certificates only
-    const certModal=document.getElementById("certModal"), certFrame=document.getElementById("certFrame"), certOpen=document.getElementById("certOpen"), certStatus=document.getElementById("certStatus");
-    document.querySelectorAll(".cert-btn").forEach(btn=>btn.onclick=()=>{
-      const path=btn.dataset.cert;
-      certFrame.src=path; certOpen.href=path; certStatus.style.display="none";
-      certModal.classList.add("open"); certModal.setAttribute("aria-hidden","false");
-      // Browsers do not expose a reliable local-file existence check; the fallback explains what to add if the PDF is not yet present.
-      setTimeout(()=>{ if(!certFrame.contentWindow || certFrame.src.endsWith("undefined")) certStatus.style.display="block"; },500);
-    });
-    function closeCert(){certModal.classList.remove("open");certModal.setAttribute("aria-hidden","true");certFrame.src="about:blank";certOpen.href="#"}
-    document.getElementById("certClose").onclick=closeCert;
-    certModal.onclick=e=>{if(e.target===certModal)closeCert()};
-
-
+    // Certificate links use direct PDF anchors; no JavaScript is required.
     // Command palette
     const palette=document.getElementById("palette"), paletteInput=document.getElementById("commandInput");
     function openPalette(){palette.classList.add("open");palette.setAttribute("aria-hidden","false");paletteInput.value="";setTimeout(()=>paletteInput.focus(),30)}
