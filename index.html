@@ -594,6 +594,43 @@
       }
     }
 
+
+    /* FINAL MOBILE PORTRAIT FIX — keep the photo locked to its frame */
+    @media (max-width:680px){
+      .hero-portrait{display:flex;flex-direction:column;align-items:center}
+      .profile-frame{
+        width:116px !important;
+        height:138px !important;
+        padding:5px !important;
+        box-sizing:border-box;
+        overflow:visible;
+        border-radius:30px !important;
+      }
+      .profile-frame:before{
+        inset:-7px !important;
+        border-radius:33px !important;
+      }
+      .profile{
+        width:100% !important;
+        height:100% !important;
+        max-width:none !important;
+        max-height:none !important;
+        display:block;
+        object-fit:cover !important;
+        object-position:center center !important;
+        border-radius:25px !important;
+      }
+    }
+
+    @media (max-width:380px){
+      .profile-frame{
+        width:104px !important;
+        height:124px !important;
+      }
+      .profile{border-radius:22px !important}
+      .profile-frame:before{border-radius:28px !important}
+    }
+
     @media(prefers-reduced-motion:reduce){
       *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
       .reveal{opacity:1;transform:none}
