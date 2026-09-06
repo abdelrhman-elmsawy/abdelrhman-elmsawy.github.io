@@ -806,7 +806,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="projects">
+    <section class="reveal" id="projects" tabindex="-1">
       <div class="container">
         <div class="eyebrow">// 01 / hands-on work</div>
         <h2 class="section-title">Selected <span>Projects</span></h2>
@@ -1149,7 +1149,15 @@
       if(d.repo){repo.href=d.repo;repo.style.display="inline-flex";pending.style.display="none"}else{repo.style.display="none";pending.style.display="block"}
       modal.classList.add("open");modal.setAttribute("aria-hidden","false");
     });
-    function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true")}
+    function closeModal(){
+  if(document.activeElement && modal.contains(document.activeElement)){
+    const opener=document.querySelector('.details:focus') || document.querySelector('.details');
+    if(opener) opener.focus();
+    else document.getElementById("projects")?.focus?.();
+  }
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+}
     document.getElementById("modalClose").onclick=closeModal;modal.onclick=e=>{if(e.target===modal)closeModal()};
 
     // Copy email
