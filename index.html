@@ -282,6 +282,24 @@
     footer{padding:30px 0;text-align:center;color:var(--muted);font:11px "Share Tech Mono";border-top:1px solid var(--line)}
     footer span{color:var(--green)}
 
+
+    /* V4 VISUAL SYSTEM */
+    .hero-role span{color:var(--green);opacity:.75;margin:0 5px}
+    .focus-section{background:linear-gradient(180deg,rgba(0,217,255,.018),transparent)}
+    .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+    .focus-card{display:grid;grid-template-columns:58px 1fr;gap:16px;padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,rgba(0,255,136,.035),rgba(0,217,255,.018));transition:.25s;position:relative;overflow:hidden}
+    .focus-card:after{content:"";position:absolute;right:-55px;top:-55px;width:130px;height:130px;border-radius:50%;border:1px solid rgba(0,255,136,.07)}
+    .focus-card:hover{transform:translateY(-5px);border-color:rgba(0,255,136,.3);box-shadow:var(--shadow)}
+    .focus-icon{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;border:1px solid rgba(0,255,136,.2);background:rgba(0,255,136,.045);color:var(--green);font:700 12px "Share Tech Mono"}
+    .focus-card h3{font:700 16px Orbitron;margin:2px 0 7px}.focus-card p{font-size:13px;color:var(--muted);line-height:1.7}.focus-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.focus-tags span{font:9px "Share Tech Mono";padding:5px 7px;border-radius:6px;border:1px solid var(--line);color:var(--cyan);background:rgba(0,217,255,.035)}
+    .roadmap{display:flex;align-items:stretch;gap:0;padding:10px 0 2px;overflow-x:auto;scrollbar-width:thin}
+    .road-step{min-width:205px;flex:1;padding:20px;border:1px solid var(--line);border-radius:15px;background:var(--panel);display:flex;gap:13px;align-items:flex-start;position:relative}.road-step.done{border-color:rgba(0,255,136,.2)}.road-step.active{border-color:rgba(0,217,255,.28);background:linear-gradient(135deg,rgba(0,217,255,.035),var(--panel))}.road-step.future{opacity:.65}.road-index{width:31px;height:31px;flex:0 0 31px;display:grid;place-items:center;border-radius:8px;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.18);color:var(--green);font:10px "Share Tech Mono"}.road-step.active .road-index{color:var(--cyan);border-color:rgba(0,217,255,.22);background:rgba(0,217,255,.05)}.road-step strong{display:block;font:700 11px Orbitron;color:var(--text)}.road-step span{display:block;margin-top:7px;font:9px/1.6 "Share Tech Mono";color:var(--muted)}.road-line{width:22px;flex:0 0 22px;align-self:center;height:1px;background:linear-gradient(90deg,var(--green),var(--cyan));opacity:.35}
+    .lab-panel{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;padding:32px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(circle at 0 0,rgba(0,255,136,.055),transparent 42%),var(--panel);box-shadow:var(--shadow)}.lab-panel .section-title{margin-bottom:12px}.lab-intro{max-width:650px;color:var(--muted);font-size:15px;line-height:1.8}.lab-status{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 11px;border:1px solid rgba(0,255,136,.18);border-radius:999px;color:var(--green);font:10px "Share Tech Mono"}.lab-console{align-self:center;padding:19px;border:1px solid var(--line);border-radius:14px;background:#030604;font:11px/2 "Share Tech Mono";box-shadow:inset 0 0 30px rgba(0,255,136,.025)}.lab-console div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed rgba(0,255,136,.08);padding:6px 0}.lab-console div:last-child{border-bottom:0}.lab-console b{font-weight:400;color:var(--green)}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric-card{padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--panel);position:relative;overflow:hidden}.metric-value{display:block;font:800 34px Orbitron;color:var(--green)}.metric-label{display:block;min-height:34px;margin-top:7px;color:var(--muted);font:10px/1.5 "Share Tech Mono";text-transform:uppercase;letter-spacing:.7px}.metric-bar{height:3px;margin-top:17px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}.metric-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));box-shadow:0 0 12px rgba(0,255,136,.35)}
+    @media(max-width:900px){.focus-grid,.lab-panel{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.roadmap{padding-bottom:10px}.road-step{min-width:190px}}
+    @media(max-width:680px){.focus-grid{grid-template-columns:1fr}.focus-card{grid-template-columns:45px 1fr;padding:18px;gap:12px}.focus-icon{width:42px;height:42px}.roadmap{display:grid;grid-template-columns:1fr;gap:8px;overflow:visible}.road-line{width:1px;height:18px;margin-left:24px}.road-step{min-width:0;padding:16px}.lab-panel{padding:20px;gap:20px}.lab-console{font-size:10px;padding:13px}.metric-grid{grid-template-columns:1fr 1fr}.metric-card{padding:17px}.metric-value{font-size:27px}.metric-label{font-size:8px}.hero-role span{margin:0 2px}}
+    @media(max-width:380px){.metric-grid{grid-template-columns:1fr}.metric-label{min-height:0}}
+
     /* MODAL */
     .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;place-items:center;padding:20px;z-index:2000}
     .modal.open{display:grid}
@@ -672,8 +690,8 @@
     <div class="container nav-inner">
       <a class="brand" href="#home"><img class="brand-mark" src="ae-logo.svg" alt="" aria-hidden="true"><span>// AE_SECURITY</span></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li><li><a href="#training">Training</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li><li><a href="#expertise">Expertise</a></li><li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li><li><a href="#skills">Skills</a></li><li><a href="#training">Training</a></li><li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <a class="btn nav-cv" href="cv.pdf" download="Abdelrhman_Elmsawy_CV.pdf">↓ CV</a>
@@ -703,7 +721,7 @@
           </div>
 
           <div class="hero-lead">Communications & Computer Engineering | Networking & Cybersecurity</div>
-          <div class="hero-role">Vulnerability Analyst & Penetration Tester</div>
+          <div class="hero-role">Vulnerability Analyst <span>|</span> Penetration Testing <span>|</span> Network Security</div>
 
           <p class="hero-copy">
             <strong>Communications &amp; Computer Engineering professional specializing in Networking and Cybersecurity</strong>,
@@ -740,7 +758,7 @@
           <div class="hero-metrics">
             <div class="hero-metric"><b>NETWORK</b><span>Infrastructure & Security</span></div>
             <div class="hero-metric"><b>SECURITY</b><span>Vulnerability Assessment</span></div>
-            <div class="hero-metric"><b>97%</b><span>Highest Training Score</span></div>
+            <div class="hero-metric"><b>97%</b><span>Highest Training Evaluation</span></div>
           </div>
         </div>
 
@@ -824,6 +842,19 @@
       </div>
     </section>
 
+    <section class="reveal focus-section" id="expertise">
+      <div class="container">
+        <div class="eyebrow">// 00 / security focus</div>
+        <h2 class="section-title">Security <span>Focus</span></h2>
+        <div class="focus-grid">
+          <article class="focus-card"><div class="focus-icon">01</div><div><h3>Network Infrastructure</h3><p>Designing and configuring structured network environments with routing, switching, addressing, segmentation and connectivity validation.</p><div class="focus-tags"><span>Routing</span><span>Switching</span><span>OSPF</span><span>DHCP</span></div></div></article>
+          <article class="focus-card"><div class="focus-icon">02</div><div><h3>Network Security</h3><p>Applying access control, firewall concepts, NAT/PAT and secure management practices to strengthen network environments.</p><div class="focus-tags"><span>ACL</span><span>Firewalls</span><span>NAT/PAT</span><span>SSH</span></div></div></article>
+          <article class="focus-card"><div class="focus-icon">03</div><div><h3>Vulnerability Assessment</h3><p>Analyzing attack surfaces, discovering weaknesses and organizing findings into structured security assessment workflows.</p><div class="focus-tags"><span>Recon</span><span>Enumeration</span><span>Assessment</span><span>Risk</span></div></div></article>
+          <article class="focus-card"><div class="focus-icon">04</div><div><h3>Penetration Testing</h3><p>Practicing controlled security testing methodologies across network and application-focused lab environments.</p><div class="focus-tags"><span>Nmap</span><span>Wireshark</span><span>Burp Suite</span><span>Metasploit</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
     <section class="reveal" id="projects" tabindex="-1">
       <div class="container">
         <div class="eyebrow">// 01 / hands-on work</div>
@@ -841,30 +872,28 @@
         <div class="projects" id="projectGrid">
           <article class="project" data-project-file="project-2.pdf" tabindex="0" role="link" aria-label="Open Network Infrastructure and ACL Configuration project" data-category="network security" data-search="network security implementation firewall access control threats mitigation documentation">
             <div class="project-media">
-              <div class="media-code"><b>NETWORK SECURITY</b>FIREWALL / ACL / THREAT MITIGATION<br>SCREENSHOT SLOT · ADD YOUR LAB IMAGE</div>
+              <div class="media-code"><b>NETWORK SECURITY</b>FIREWALL / ACL / THREAT MITIGATION<br>CONTROLLED LAB · CASE STUDY</div>
             </div>
             <span class="tag">Network Security</span>
             <h3>Network Infrastructure & ACL Configuration</h3>
             <p>Designed and configured a Cisco Packet Tracer network using routing, DHCP, NAT and ACL policies, with connectivity and access-control validation.</p>
             <div class="mini-grid chips"><span class="chip">Firewall</span><span class="chip">ACL</span><span class="chip">Threat Mitigation</span></div>
             <div class="project-actions">
-              <button class="details" data-project="security">VIEW DETAILS →</button>
-              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published" style="display:none">⌘ REPO PENDING</a>
+              <button class="details" data-project="security">VIEW CASE STUDY →</button><a class="repo-link" href="project-2.pdf" target="_blank" rel="noopener">OPEN REPORT ↗</a>
             </div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">JAN–FEB 2026</span><span class="mono" style="font-size:9px;color:var(--cyan)">LAB / SIMULATION</span></div>
           </article>
 
           <article class="project" data-project-file="project-1.pdf" tabindex="0" role="link" aria-label="Open Network Infrastructure Training project" data-category="network" data-search="network infrastructure cisco packet tracer vlan subnetting dhcp ospf nat pat ssh telnet acl port security dhcp snooping">
             <div class="project-media">
-              <div class="media-code"><b>ENTERPRISE NETWORK</b>VLAN / OSPF / NAT / ACL<br>SCREENSHOT SLOT · ADD PACKET TRACER IMAGE</div>
+              <div class="media-code"><b>ENTERPRISE NETWORK</b>VLAN / OSPF / NAT / ACL<br>PACKET TRACER · CASE STUDY</div>
             </div>
             <span class="tag">Network Infrastructure</span>
             <h3>Network Infrastructure Implementation</h3>
             <p>Designed an enterprise-style topology in Cisco Packet Tracer with segmentation, routing, addressing, secure management and connectivity validation.</p>
             <div class="mini-grid chips"><span class="chip">VLAN</span><span class="chip">OSPF</span><span class="chip">NAT/PAT</span><span class="chip">ACL</span></div>
             <div class="project-actions">
-              <button class="details" data-project="network">VIEW DETAILS →</button>
-              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published" style="display:none">⌘ REPO PENDING</a>
+              <button class="details" data-project="network">VIEW CASE STUDY →</button><a class="repo-link" href="project-1.pdf" target="_blank" rel="noopener">OPEN REPORT ↗</a>
             </div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">AUG–SEP 2025</span><span class="mono" style="font-size:9px;color:var(--cyan)">PACKET TRACER</span></div>
           </article>
@@ -879,10 +908,47 @@
             <div class="mini-grid chips"><span class="chip">Nmap</span><span class="chip">Wireshark</span><span class="chip">Burp Suite</span><span class="chip">Metasploit</span></div>
             <div class="project-actions">
               <button class="details" data-project="pentest">VIEW DETAILS →</button>
-              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published" style="display:none">⌘ REPO PENDING</a>
             </div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">LAB WORK</span><span class="mono" style="font-size:9px;color:var(--cyan)">CONTROLLED LAB</span></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal roadmap-section" id="roadmap">
+      <div class="container">
+        <div class="eyebrow">// 01 / professional roadmap</div>
+        <h2 class="section-title">Security <span>Roadmap</span></h2>
+        <div class="roadmap">
+          <div class="road-step done"><div class="road-index">01</div><div><strong>NETWORKING</strong><span>Infrastructure · Routing · Switching</span></div></div>
+          <div class="road-line"></div>
+          <div class="road-step done"><div class="road-index">02</div><div><strong>NETWORK SECURITY</strong><span>ACL · Firewall · Secure Access</span></div></div>
+          <div class="road-line"></div>
+          <div class="road-step active"><div class="road-index">03</div><div><strong>VULNERABILITY ASSESSMENT</strong><span>Recon · Enumeration · Security Analysis</span></div></div>
+          <div class="road-line"></div>
+          <div class="road-step active"><div class="road-index">04</div><div><strong>PENETRATION TESTING</strong><span>Controlled Labs · Testing Methodology</span></div></div>
+          <div class="road-line"></div>
+          <div class="road-step future"><div class="road-index">05</div><div><strong>SECURITY ENGINEERING</strong><span>Secure Infrastructure · Defense · Hardening</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal lab-section" id="lab">
+      <div class="container">
+        <div class="lab-panel">
+          <div>
+            <div class="eyebrow">// security lab</div>
+            <h2 class="section-title">Controlled <span>Security Lab</span></h2>
+            <p class="lab-intro">A practical environment for developing security assessment skills through controlled reconnaissance, enumeration, traffic analysis, vulnerability assessment and testing workflows.</p>
+            <div class="lab-status"><span class="dot"></span> LAB STATUS: ACTIVE · CONTROLLED ENVIRONMENT</div>
+          </div>
+          <div class="lab-console">
+            <div><span class="log-ok">[01]</span> Reconnaissance <b>READY</b></div>
+            <div><span class="log-ok">[02]</span> Enumeration <b>READY</b></div>
+            <div><span class="log-info">[03]</span> Vulnerability Assessment <b>ACTIVE</b></div>
+            <div><span class="log-info">[04]</span> Security Testing <b>ACTIVE</b></div>
+            <div><span class="log-warn">[05]</span> Reporting & Remediation <b>READY</b></div>
+          </div>
         </div>
       </div>
     </section>
@@ -987,6 +1053,19 @@
             <p>Networking fundamentals, routing & switching, network infrastructure and IT operations.</p>
             <div class="cert-row"><span class="score">FINAL EVALUATION · 97%</span><a class="btn cert-btn" href="certificates/network-infrastructure.pdf" target="_blank" rel="noopener">VIEW CERTIFICATE ↗</a></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="metrics">
+      <div class="container">
+        <div class="eyebrow">// performance snapshot</div>
+        <h2 class="section-title">Professional <span>Metrics</span></h2>
+        <div class="metric-grid">
+          <div class="metric-card"><span class="metric-value">97%</span><span class="metric-label">Highest Training Evaluation</span><div class="metric-bar"><i style="width:97%"></i></div></div>
+          <div class="metric-card"><span class="metric-value">92%</span><span class="metric-label">Firewall Training Evaluation</span><div class="metric-bar"><i style="width:92%"></i></div></div>
+          <div class="metric-card"><span class="metric-value">02</span><span class="metric-label">Documented Network Projects</span><div class="metric-bar"><i style="width:72%"></i></div></div>
+          <div class="metric-card"><span class="metric-value">05+</span><span class="metric-label">Core Security Domains</span><div class="metric-bar"><i style="width:82%"></i></div></div>
         </div>
       </div>
     </section>
@@ -1103,6 +1182,9 @@
       <input id="commandInput" placeholder="Type a command…" autocomplete="off">
       <div class="commands" id="commands">
         <div class="command" data-action="projects">Open Projects <kbd>↵</kbd></div>
+        <div class="command" data-action="expertise">Open Security Focus <kbd>↵</kbd></div>
+        <div class="command" data-action="services">Open Services <kbd>↵</kbd></div>
+        <div class="command" data-action="lab">Open Security Lab <kbd>↵</kbd></div>
         <div class="command" data-action="contact">Go to Contact</div>
         <div class="command" data-action="theme">Toggle Theme</div>
         <div class="command" data-action="cv">Download CV</div>
@@ -1157,7 +1239,7 @@
 
     // Terminal
     const logs=[
-      ["log-dim","[sys] booting portfolio security console…"],
+      ["log-dim","[sys] booting security profile console…"],
       ["log-ok","[ok]  profile loaded — Abdelrhman Elmsawy"],
       ["log-info","[edu] Communications & Computer Engineering / 2027"],
       ["log-info","[net] routing · switching · VLAN · OSPF · NAT/PAT"],
@@ -1168,7 +1250,7 @@
       ["log-warn","[lab] controlled penetration-testing environment"],
       ["log-ok","[train] DEPI Infrastructure & Security — IN PROGRESS"],
       ["log-info","[focus] cybersecurity / network security / networking"],
-      ["log-ok","[ready] projects · training · contact channels available"],
+      ["log-ok","[ready] expertise · projects · services · lab available"],
       ["log-dim","[sys] session active ▋"]
     ];
     const out=document.getElementById("terminalOutput");let li=0;
@@ -1230,7 +1312,7 @@
     document.getElementById("paletteBtn").onclick=openPalette;
     palette.onclick=e=>{if(e.target===palette)closePalette()};
     document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openPalette()}if(e.key==="Escape"){closePalette();closeModal();closeCert()}});
-    document.querySelectorAll(".command").forEach(c=>c.onclick=()=>{const a=c.dataset.action;if(a==="theme")themeBtn.click();if(a==="cv")location.href="cv.pdf";if(a==="projects")location.href="#projects";if(a==="contact")location.href="#contact";closePalette()});
+    document.querySelectorAll(".command").forEach(c=>c.onclick=()=>{const a=c.dataset.action;if(a==="theme")themeBtn.click();if(a==="cv")location.href="cv.pdf";if(a==="projects")location.href="#projects";if(a==="expertise")location.href="#expertise";if(a==="services")location.href="#services";if(a==="lab")location.href="#lab";if(a==="contact")location.href="#contact";closePalette()});
     paletteInput.oninput=()=>{const q=paletteInput.value.toLowerCase();document.querySelectorAll(".command").forEach(c=>c.style.display=c.textContent.toLowerCase().includes(q)?"flex":"none")};
     paletteInput.onkeydown=e=>{if(e.key==="Enter"){document.querySelector('.command[style*="flex"]')?.click()}};
 
