@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="description" content="Abdelrhman Elmsawy — Communications & Computer Engineering student focused on Networking, Network Security and Penetration Testing.">
+  <meta name="description" content="Abdelrhman Elmsawy — Communications & Computer Engineering professional focused on Networking, Network Security and Penetration Testing.">
   <meta name="author" content="Abdelrhman Elmsawy">
   <meta property="og:title" content="Abdelrhman Elmsawy | Network Security & Pentesting">
   <meta property="og:description" content="Portfolio of Abdelrhman Elmsawy — Networking, Network Security, Vulnerability Assessment and Penetration Testing.">
@@ -226,6 +226,15 @@
     .repo-link.disabled{opacity:.45;cursor:not-allowed;color:var(--muted)}
     .project-link{text-decoration:none;color:var(--cyan);font:11px "Share Tech Mono"}
 
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .service{padding:23px;border:1px solid var(--line);border-radius:16px;background:var(--panel);transition:.25s;position:relative;overflow:hidden}
+    .service:hover{transform:translateY(-5px);border-color:rgba(0,255,136,.28);box-shadow:var(--shadow)}
+    .service-number{font:10px "Share Tech Mono";color:var(--green);letter-spacing:2px}
+    .service h3{font:700 15px Orbitron;margin:12px 0 8px}
+    .service p{font-size:13px;color:var(--muted);line-height:1.7}
+    .service .mini-grid{margin-top:14px}
+
     /* SKILLS */
     .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
     .skill-group{padding:23px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
@@ -296,7 +305,7 @@
     #top.show{opacity:1;pointer-events:auto}
 
     @media(max-width:950px){
-      .hero{grid-template-columns:150px minmax(0,1fr);gap:28px}.hero-portrait{grid-column:1}.hero-copy-wrap{grid-column:2}.terminal-wrap{grid-column:1 / -1}.terminal{max-width:100%;}.terminal-wrap{margin-top:30px}.trusted-grid{grid-template-columns:repeat(3,1fr)}.projects{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.two-col,.contact{grid-template-columns:1fr}.training-grid{grid-template-columns:1fr}
+      .hero{grid-template-columns:150px minmax(0,1fr);gap:28px}.hero-portrait{grid-column:1}.hero-copy-wrap{grid-column:2}.terminal-wrap{grid-column:1 / -1}.terminal{max-width:100%;}.terminal-wrap{margin-top:30px}.trusted-grid{grid-template-columns:repeat(3,1fr)}.projects{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.two-col,.contact{grid-template-columns:1fr}.training-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}
     }
     @media(max-width:680px){
       .hero{grid-template-columns:1fr;gap:24px}.hero-portrait,.hero-copy-wrap,.terminal-wrap{grid-column:auto}
@@ -307,7 +316,7 @@
       .nav-links{display:none}.menu-btn{display:grid}.nav-inner{height:62px}
       .nav-links.mobile-open{position:absolute;top:62px;left:0;right:0;display:flex;flex-direction:column;gap:0;padding:8px 14px;background:var(--panel2);border-bottom:1px solid var(--line)}
       .nav-links.mobile-open a{display:block;padding:12px}
-      section{padding:65px 0}.hero{padding:55px 0}.projects,.skills{grid-template-columns:1fr}
+      section{padding:65px 0}.hero{padding:55px 0}.projects,.skills,.services-grid{grid-template-columns:1fr}
       .stats{grid-template-columns:1fr 1fr}.search{width:100%;min-width:0}.toolbar{align-items:stretch}
       h1{letter-spacing:-1px}.terminal-body{height:270px}
     }
@@ -321,7 +330,7 @@
       .terminal-wrap{grid-column:1 / -1;max-width:none;margin-top:22px}
       .terminal{max-width:none}
       .trusted-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-      .projects{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .projects{grid-template-columns:repeat(2,minmax(0,1fr))}.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
 
@@ -351,7 +360,7 @@
       .project{min-height:410px}
       .terminal-body{height:320px}
       .skills{grid-template-columns:1fr 1fr}
-      .training-grid{grid-template-columns:1fr}
+      .training-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}
     }
 
     /* iPhone / Android phones */
@@ -693,8 +702,8 @@
             <h1>Abdelrhman <span class="gradient">Elmsawy</span></h1>
           </div>
 
-          <div class="hero-lead">Communications & Computer Engineering Student</div>
-          <div class="hero-role">Aspiring Vulnerability Analyst & Penetration Tester</div>
+          <div class="hero-lead">Communications & Computer Engineering | Networking & Cybersecurity</div>
+          <div class="hero-role">Vulnerability Analyst & Penetration Tester</div>
 
           <p class="hero-copy">
             Passionate about <strong>Networking and Cybersecurity</strong>, with hands-on experience
@@ -720,8 +729,8 @@
           </div>
 
           <div class="hero-metrics">
-            <div class="hero-metric"><b>2027</b><span>Expected Graduation</span></div>
-            <div class="hero-metric"><b>3.06 / 4.00</b><span>University GPA</span></div>
+            <div class="hero-metric"><b>NETWORK</b><span>Infrastructure & Security</span></div>
+            <div class="hero-metric"><b>SECURITY</b><span>Vulnerability Assessment</span></div>
             <div class="hero-metric"><b>97%</b><span>Highest Training Score</span></div>
           </div>
         </div>
@@ -764,7 +773,7 @@
           <div class="stat"><div class="stat-number" data-count="3">0</div><div class="stat-label">Technical Projects</div></div>
           <div class="stat"><div class="stat-number" data-count="6">0</div><div class="stat-label">Core Security Tools</div></div>
           <div class="stat"><div class="stat-number" data-count="97">0%</div><div class="stat-label">Highest Training Evaluation</div></div>
-          <div class="stat"><div class="stat-number">2027</div><div class="stat-label">Expected Graduation</div></div>
+          <div class="stat"><div class="stat-number">3+</div><div class="stat-label">Technical Focus Areas</div></div>
         </div>
 
         <div class="two-col">
@@ -772,12 +781,12 @@
             <div class="card">
               <h3>Professional Direction</h3>
               <div class="meta">CYBERSECURITY / NETWORK SECURITY / NETWORK ENGINEERING</div>
-              <p>Seeking an internship where networking knowledge, security fundamentals, vulnerability assessment and hands-on lab experience can be applied to real environments.</p>
+              <p>Focused on designing, securing and analyzing network environments, with an emphasis on network infrastructure, access control, vulnerability assessment and penetration testing. Applying practical skills through structured training, technical projects and controlled security labs.</p>
             </div>
             <div class="card">
               <h3>Education</h3>
               <div class="meta">MANSOURA UNIVERSITY · FACULTY OF ENGINEERING</div>
-              <p>B.Sc. in Communications & Computer Engineering · Expected 2027 · GPA 3.06 / 4.00</p>
+              <p>B.Sc. in Communications & Computer Engineering · Mansoura University</p>
             </div>
           </div>
           <div class="timeline">
@@ -821,32 +830,32 @@
         </div>
 
         <div class="projects" id="projectGrid">
-          <article class="project" data-category="network security" data-search="network security implementation firewall access control threats mitigation documentation">
+          <article class="project" data-project-file="project-2.pdf" tabindex="0" role="link" aria-label="Open Network Infrastructure and ACL Configuration project" data-category="network security" data-search="network security implementation firewall access control threats mitigation documentation">
             <div class="project-media">
               <div class="media-code"><b>NETWORK SECURITY</b>FIREWALL / ACL / THREAT MITIGATION<br>SCREENSHOT SLOT · ADD YOUR LAB IMAGE</div>
             </div>
             <span class="tag">Network Security</span>
-            <h3>Network Security Implementation</h3>
-            <p>Configured firewall and access-control concepts in a simulated network environment, identified common threats and applied basic mitigation strategies.</p>
+            <h3>Network Infrastructure & ACL Configuration</h3>
+            <p>Designed and configured a Cisco Packet Tracer network using routing, DHCP, NAT and ACL policies, with connectivity and access-control validation.</p>
             <div class="mini-grid chips"><span class="chip">Firewall</span><span class="chip">ACL</span><span class="chip">Threat Mitigation</span></div>
             <div class="project-actions">
               <button class="details" data-project="security">VIEW DETAILS →</button>
-              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published">⌘ REPO PENDING</a>
+              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published" style="display:none">⌘ REPO PENDING</a>
             </div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">JAN–FEB 2026</span><span class="mono" style="font-size:9px;color:var(--cyan)">LAB / SIMULATION</span></div>
           </article>
 
-          <article class="project" data-category="network" data-search="network infrastructure cisco packet tracer vlan subnetting dhcp ospf nat pat ssh telnet acl port security dhcp snooping">
+          <article class="project" data-project-file="project-1.pdf" tabindex="0" role="link" aria-label="Open Network Infrastructure Training project" data-category="network" data-search="network infrastructure cisco packet tracer vlan subnetting dhcp ospf nat pat ssh telnet acl port security dhcp snooping">
             <div class="project-media">
               <div class="media-code"><b>ENTERPRISE NETWORK</b>VLAN / OSPF / NAT / ACL<br>SCREENSHOT SLOT · ADD PACKET TRACER IMAGE</div>
             </div>
             <span class="tag">Network Infrastructure</span>
-            <h3>Enterprise Network Design</h3>
+            <h3>Network Infrastructure Implementation</h3>
             <p>Designed an enterprise-style topology in Cisco Packet Tracer with segmentation, routing, addressing, secure management and connectivity validation.</p>
             <div class="mini-grid chips"><span class="chip">VLAN</span><span class="chip">OSPF</span><span class="chip">NAT/PAT</span><span class="chip">ACL</span></div>
             <div class="project-actions">
               <button class="details" data-project="network">VIEW DETAILS →</button>
-              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published">⌘ REPO PENDING</a>
+              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published" style="display:none">⌘ REPO PENDING</a>
             </div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">AUG–SEP 2025</span><span class="mono" style="font-size:9px;color:var(--cyan)">PACKET TRACER</span></div>
           </article>
@@ -861,9 +870,42 @@
             <div class="mini-grid chips"><span class="chip">Nmap</span><span class="chip">Wireshark</span><span class="chip">Burp Suite</span><span class="chip">Metasploit</span></div>
             <div class="project-actions">
               <button class="details" data-project="pentest">VIEW DETAILS →</button>
-              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published">⌘ REPO PENDING</a>
+              <a class="repo-link disabled" aria-disabled="true" title="Repository link will be added when the project repo is published" style="display:none">⌘ REPO PENDING</a>
             </div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">LAB WORK</span><span class="mono" style="font-size:9px;color:var(--cyan)">CONTROLLED LAB</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="services">
+      <div class="container">
+        <div class="eyebrow">// 02 / technical services</div>
+        <h2 class="section-title">Technical <span>Services</span></h2>
+        <div class="services-grid">
+          <article class="service">
+            <div class="service-number">01 / NETWORK</div>
+            <h3>Network Infrastructure</h3>
+            <p>Network design and configuration fundamentals covering routing, switching, IP addressing, VLANs, DHCP and OSPF.</p>
+            <div class="mini-grid"><span class="chip">Routing</span><span class="chip">Switching</span><span class="chip">OSPF</span></div>
+          </article>
+          <article class="service">
+            <div class="service-number">02 / SECURITY</div>
+            <h3>Network Security</h3>
+            <p>Network access-control and security configuration support using ACLs, firewalls, NAT/PAT and security hardening concepts.</p>
+            <div class="mini-grid"><span class="chip">Firewalls</span><span class="chip">ACLs</span><span class="chip">NAT/PAT</span></div>
+          </article>
+          <article class="service">
+            <div class="service-number">03 / ASSESSMENT</div>
+            <h3>Vulnerability Assessment</h3>
+            <p>Structured assessment workflows covering reconnaissance, enumeration, network discovery and identification of potential weaknesses.</p>
+            <div class="mini-grid"><span class="chip">Nmap</span><span class="chip">Wireshark</span><span class="chip">Recon</span></div>
+          </article>
+          <article class="service">
+            <div class="service-number">04 / PENTEST</div>
+            <h3>Penetration Testing Labs</h3>
+            <p>Controlled security testing and lab-based practice using common penetration-testing tools and documented findings.</p>
+            <div class="mini-grid"><span class="chip">Burp Suite</span><span class="chip">Metasploit</span><span class="chip">Kali Linux</span></div>
           </article>
         </div>
       </div>
@@ -946,7 +988,7 @@
         <h2 class="section-title">Let's <span>Connect</span></h2>
         <div class="contact">
           <div class="contact-card">
-            <p style="color:var(--muted);font-size:14px">For internship opportunities, collaborative labs, networking projects or cybersecurity discussions:</p>
+            <p style="color:var(--muted);font-size:14px">For networking projects, technical collaboration or cybersecurity discussions:</p>
             <div class="contact-list">
               <a class="contact-item" href="mailto:abdelrhman.elmsawy@gmail.com"><span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13ZM5 6l7 5.4L19 6v-.5a.5.5 0 0 0-.5-.5h-13a.5.5 0 0 0-.5.5V6Zm14 2.5-6.39 4.92a1 1 0 0 1-1.22 0L5 8.5v10c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5v-10Z"/></svg></span>abdelrhman.elmsawy@gmail.com</a>
               <a class="contact-item" href="tel:+201277177026"><span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 2.8c.5-.2 1.1 0 1.4.5l2 3.8c.3.5.2 1.1-.2 1.5L8.2 10a15.2 15.2 0 0 0 5.8 5.8l1.4-1.6c.4-.4 1-.5 1.5-.2l3.8 2c.5.3.7.9.5 1.4l-1 3.1c-.2.6-.8 1-1.4 1C10.2 21.5 2.5 13.8 2.5 4.2c0-.6.4-1.2 1-1.4l3.1-1Z"/></svg></span>+20 1277 177 026</a>
@@ -957,7 +999,7 @@
           <div class="availability">
             <div class="status" style="margin:0"><span class="dot"></span> AVAILABLE</div>
             <h3>Ready to learn. Ready to build.</h3>
-            <p>Focused on developing practical skills in network security, vulnerability assessment and penetration testing through structured training and hands-on labs.</p>
+            <p>Focused on practical network security, vulnerability assessment and penetration testing, with an emphasis on structured technical work and hands-on labs.</p>
             <div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/201277177026" target="_blank" rel="noopener">WhatsApp →</a><a class="btn" href="mailto:abdelrhman.elmsawy@gmail.com">Email Me →</a></div>
           </div>
         </div>
@@ -1116,7 +1158,7 @@
       ["log-ok","[tool] Nmap / Wireshark / Burp Suite / Metasploit"],
       ["log-warn","[lab] controlled penetration-testing environment"],
       ["log-ok","[train] DEPI Infrastructure & Security — IN PROGRESS"],
-      ["log-info","[goal] cybersecurity / network security internship"],
+      ["log-info","[focus] cybersecurity / network security / networking"],
       ["log-ok","[ready] projects · training · contact channels available"],
       ["log-dim","[sys] session active ▋"]
     ];
@@ -1131,10 +1173,17 @@
     filters.forEach(f=>f.onclick=()=>{filters.forEach(x=>x.classList.remove("active"));f.classList.add("active");active=f.dataset.filter;renderProjects()});
     search.oninput=renderProjects;
 
+    // Open attached project reports when a project card is clicked
+    document.querySelectorAll('.project[data-project-file]').forEach(card=>{
+      const openProject=()=>window.open(card.dataset.projectFile,'_blank','noopener');
+      card.addEventListener('click',e=>{if(e.target.closest('button,a,input')) return;openProject()});
+      card.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ') && !e.target.closest('button,a,input')){e.preventDefault();openProject()}});
+    });
+
     // Project details modal
     const projectData={
-      security:{tag:"NETWORK SECURITY",title:"Network Security Implementation",text:"A simulated network-security project focused on firewall and access-control concepts, threat identification and basic mitigation.",list:["Configured firewall and access-control concepts in a simulated environment.","Identified common security threats and applied basic mitigation strategies.","Produced technical documentation covering design, configurations and testing results."],tools:["Firewall","ACL","Access Control","Threat Mitigation"],repo:""},
-      network:{tag:"NETWORK INFRASTRUCTURE",title:"Enterprise Network Design",text:"An enterprise-style topology implemented in Cisco Packet Tracer with core routing, segmentation and security controls.",list:["Applied subnetting, VLAN segmentation, DHCP and OSPF.","Implemented NAT/PAT, SSH/Telnet, ACLs, Port Security and DHCP Snooping concepts.","Validated connectivity and performed troubleshooting for reliable communication."],tools:["Cisco Packet Tracer","VLAN","OSPF","NAT/PAT","ACL","DHCP"],repo:""},
+      security:{tag:"NETWORK SECURITY",title:"Network Security Implementation",text:"A Cisco Packet Tracer network implementation covering IP addressing, routing, DHCP, NAT and ACL-based access control.",list:["Configured firewall and access-control concepts in a simulated environment.","Identified common security threats and applied basic mitigation strategies.","Produced technical documentation covering design, configurations and testing results."],tools:["Firewall","ACL","Access Control","Threat Mitigation"],repo:""},
+      network:{tag:"NETWORK INFRASTRUCTURE",title:"Enterprise Network Design",text:"A hands-on Cisco Packet Tracer implementation covering IP addressing, DHCP, OSPF routing, SSH/Telnet access and device security.",list:["Applied subnetting, VLAN segmentation, DHCP and OSPF.","Implemented NAT/PAT, SSH/Telnet, ACLs, Port Security and DHCP Snooping concepts.","Validated connectivity and performed troubleshooting for reliable communication."],tools:["Cisco Packet Tracer","VLAN","OSPF","NAT/PAT","ACL","DHCP"],repo:""},
       pentest:{tag:"SECURITY LAB",title:"Network Security & Pentesting Lab",text:"A controlled lab for practicing reconnaissance, enumeration, vulnerability assessment and basic exploitation workflows.",list:["Used Nmap and Wireshark for network discovery and traffic analysis.","Practiced simulated web/network security testing with Burp Suite and Metasploit.","Documented findings, testing results and basic remediation recommendations."],tools:["Nmap","Wireshark","Burp Suite","Metasploit","Kali Linux"],repo:""}
     };
     const modal=document.getElementById("modal");
