@@ -3,8 +3,7 @@
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 :focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:6px}
 ::selection{background:rgba(0,255,136,.22);color:var(--text)}
-.nav-links a,.btn,.icon-btn,.menu-btn,.chip,.project-card,.skill-card,.cert-card{transition-timing-function:var(--ease-out)}
-.project-card:hover,.skill-card:hover,.cert-card:hover{transform:translateY(-4px)}
+.nav-links a,.btn,.icon-btn,.menu-btn,.chip{transition-timing-function:var(--ease-out)}
 .btn:active,.icon-btn:active,.menu-btn:active{transform:translateY(0) scale(.98)}
 img[loading="lazy"]{content-visibility:auto}
 @media(max-width:700px){.container{width:min(var(--max),calc(100% - 28px))}section{padding:72px 0}.hero-copy-wrap:before{inset:-18px -12px}.btn{min-height:44px}.nav-links a{padding:10px 4px}}
