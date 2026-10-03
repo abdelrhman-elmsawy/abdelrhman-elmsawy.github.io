@@ -1,0 +1,8 @@
+/* TEAM */
+Name: Abdelrhman Elmsawy
+Role: Communications & Computer Engineering
+Focus: Networking, Network Security, Vulnerability Assessment, Penetration Testing
+
+/* SITE */
+Portfolio: https://abdelrhman-elmsawy.github.io/
+Repository: https://github.com/abdelrhman-elmsawy/abdelrhman-elmsawy.github.io
