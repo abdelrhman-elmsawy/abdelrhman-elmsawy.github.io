@@ -1,0 +1,101 @@
+name: Apply Phase 3 Portfolio Enhancements
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  enhance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upgrade skills and training sections
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+
+          css='''
+    /* PHASE 3 — TECHNICAL ARSENAL + TRAINING POLISH */
+    .arsenal-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:20px}
+    .arsenal-search{width:min(310px,100%);padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);outline:0;font:11px "Share Tech Mono"}
+    .arsenal-search:focus{border-color:rgba(0,255,136,.4);box-shadow:0 0 0 3px rgba(0,255,136,.05)}
+    .arsenal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .arsenal-card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel);position:relative;overflow:hidden}
+    .arsenal-card:after{content:"";position:absolute;inset:auto -20px -40px auto;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,136,.08),transparent 68%);pointer-events:none}
+    .arsenal-card h3{font:700 13px Orbitron;margin-bottom:13px;color:var(--text)}
+    .arsenal-card .count{float:right;font:9px "Share Tech Mono";color:var(--green);font-weight:400}
+    .arsenal-tags{display:flex;flex-wrap:wrap;gap:7px}
+    .arsenal-tag{padding:7px 9px;border:1px solid rgba(0,217,255,.15);border-radius:7px;background:rgba(0,217,255,.025);color:var(--cyan);font:10px "Share Tech Mono";transition:.18s}
+    .arsenal-tag:hover{border-color:rgba(0,255,136,.35);color:var(--green);transform:translateY(-1px)}
+    .arsenal-tag[data-hidden="true"]{display:none}
+    .arsenal-note{margin-top:14px;color:var(--muted);font:10px/1.7 "Share Tech Mono"}
+    .training{position:relative}
+    .training.in-progress:after,.training.completed:after{position:absolute;right:16px;top:16px;padding:4px 7px;border-radius:5px;font:8px "Share Tech Mono";letter-spacing:.6px}
+    .training.in-progress:after{content:"IN PROGRESS";color:var(--cyan);border:1px solid rgba(0,217,255,.2);background:rgba(0,217,255,.035)}
+    .training.completed:after{content:"COMPLETED";color:var(--green);border:1px solid rgba(0,255,136,.2);background:rgba(0,255,136,.035)}
+    .training-top{padding-right:100px}
+    .cert-row .cert-btn{transition:.2s}.cert-row .cert-btn:hover{box-shadow:0 8px 24px rgba(0,255,136,.12)}
+    @media(max-width:900px){.arsenal-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:680px){.arsenal-head{align-items:stretch;flex-direction:column}.arsenal-grid{grid-template-columns:1fr}.training-top{padding-right:0}.training.in-progress:after,.training.completed:after{position:static;display:inline-block;margin-top:10px}}
+'''
+          if '/* PHASE 3 — TECHNICAL ARSENAL + TRAINING POLISH */' not in s:
+              s=s.replace('  </style>',css+'\n  </style>',1)
+
+          arsenal='''
+    <section class="reveal" id="arsenal">
+      <div class="container">
+        <div class="eyebrow">// technical arsenal</div>
+        <div class="arsenal-head">
+          <div>
+            <h2 class="section-title" style="margin-bottom:8px">Technical <span>Arsenal</span></h2>
+            <p class="arsenal-note" style="margin-top:0">Search the tools, technologies and security concepts used across my labs and projects.</p>
+          </div>
+          <input class="arsenal-search" id="arsenalSearch" type="search" placeholder="$ search arsenal..." aria-label="Search technical arsenal">
+        </div>
+        <div class="arsenal-grid" id="arsenalGrid">
+          <article class="arsenal-card"><h3>NETWORKING <span class="count">08</span></h3><div class="arsenal-tags"><span class="arsenal-tag">TCP/IP</span><span class="arsenal-tag">OSPF</span><span class="arsenal-tag">VLAN</span><span class="arsenal-tag">DHCP</span><span class="arsenal-tag">ACL</span><span class="arsenal-tag">NAT/PAT</span><span class="arsenal-tag">SSH</span><span class="arsenal-tag">Subnetting</span></div></article>
+          <article class="arsenal-card"><h3>SECURITY <span class="count">08</span></h3><div class="arsenal-tags"><span class="arsenal-tag">Nmap</span><span class="arsenal-tag">Wireshark</span><span class="arsenal-tag">Burp Suite</span><span class="arsenal-tag">Metasploit</span><span class="arsenal-tag">Kali Linux</span><span class="arsenal-tag">Recon</span><span class="arsenal-tag">Enumeration</span><span class="arsenal-tag">Vulnerability Assessment</span></div></article>
+          <article class="arsenal-card"><h3>PLATFORMS & LABS <span class="count">07</span></h3><div class="arsenal-tags"><span class="arsenal-tag">Cisco Packet Tracer</span><span class="arsenal-tag">GNS3</span><span class="arsenal-tag">EVE-NG</span><span class="arsenal-tag">VMware</span><span class="arsenal-tag">Linux</span><span class="arsenal-tag">Windows</span><span class="arsenal-tag">OpenVPN</span></div></article>
+        </div>
+        <p class="arsenal-note" id="arsenalEmpty" hidden>No matching capability found. Try a tool, protocol or security concept.</p>
+      </div>
+    </section>
+'''
+          marker='    <section class="reveal" id="training">'
+          if 'id="arsenal"' not in s and marker in s:
+              s=s.replace(marker,arsenal+'\n'+marker,1)
+
+          nav_old='<li><a href="#services">Services</a></li><li><a href="#skills">Skills</a></li><li><a href="#training">Training</a></li>'
+          nav_new='<li><a href="#services">Services</a></li><li><a href="#skills">Skills</a></li><li><a href="#arsenal">Arsenal</a></li><li><a href="#training">Training</a></li>'
+          s=s.replace(nav_old,nav_new,1)
+
+          js='''
+    // Phase 3 — technical arsenal search
+    (function(){
+      const input=document.getElementById('arsenalSearch');
+      const tags=[...document.querySelectorAll('.arsenal-tag')];
+      const empty=document.getElementById('arsenalEmpty');
+      if(!input) return;
+      const filter=()=>{
+        const q=input.value.trim().toLowerCase(); let visible=0;
+        tags.forEach(tag=>{const hit=!q||tag.textContent.toLowerCase().includes(q);tag.dataset.hidden=hit?'false':'true';if(hit)visible++});
+        document.querySelectorAll('.arsenal-card').forEach(card=>{const has=[...card.querySelectorAll('.arsenal-tag')].some(t=>t.dataset.hidden!=='true');card.hidden=!!q&&!has});
+        empty.hidden=visible!==0||!q;
+      };
+      input.addEventListener('input',filter);
+    })();
+'''
+          if 'Phase 3 — technical arsenal search' not in s:
+              s=s.replace('</body>',js+'\n</body>',1)
+          p.write_text(s,encoding='utf-8')
+      - name: Commit and clean up
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/phase3.yml
+          git add index.html .github/workflows/phase3.yml
+          git commit -m "Upgrade skills and training presentation"
+          git push
