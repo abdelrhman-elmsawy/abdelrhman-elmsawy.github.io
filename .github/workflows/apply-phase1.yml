@@ -1,0 +1,36 @@
+name: Apply Phase 1 Portfolio Enhancements
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  enhance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply changes
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('<body>\\n  <main id="main" style="padding-top:70px;">','<body>')
+          old='''    nav{\n      position:fixed;top:0;left:0;right:0;width:100%;z-index:10000;background:rgba(5,9,7,.72);\n      backdrop-filter:blur(18px);border-bottom:1px solid var(--line);\n    }'''
+          new='''    nav{\n      position:fixed;top:0;left:0;right:0;width:100%;z-index:10000;background:rgba(5,9,7,.72);\n      backdrop-filter:blur(18px);border-bottom:1px solid var(--line);\n      transition:background .25s ease,box-shadow .25s ease,border-color .25s ease;\n    }\n    nav.scrolled{background:rgba(5,9,7,.92);border-bottom-color:rgba(0,255,136,.22);box-shadow:0 10px 32px rgba(0,0,0,.24)}\n    [data-theme="light"] nav.scrolled{background:rgba(244,248,246,.96);border-bottom-color:rgba(0,110,65,.20);box-shadow:0 10px 30px rgba(19,53,37,.10)}'''
+          if old in s: s=s.replace(old,new,1)
+          old='''    // Mobile menu\n    document.getElementById("menuBtn").onclick=()=>document.getElementById("navLinks").classList.toggle("mobile-open");\n    document.querySelectorAll(".nav-links a").forEach(a=>a.onclick=()=>document.getElementById("navLinks").classList.remove("mobile-open"));'''
+          new='''    // Mobile menu + navbar state\n    const nav=document.querySelector("nav"), menuBtn=document.getElementById("menuBtn"), navLinks=document.getElementById("navLinks");\n    function closeMobileMenu(){navLinks.classList.remove("mobile-open");document.body.classList.remove("nav-open");menuBtn.setAttribute("aria-expanded","false")}\n    menuBtn.setAttribute("aria-expanded","false");\n    menuBtn.onclick=()=>{const open=navLinks.classList.toggle("mobile-open");document.body.classList.toggle("nav-open",open);menuBtn.setAttribute("aria-expanded",String(open))};\n    document.querySelectorAll(".nav-links a").forEach(a=>a.onclick=closeMobileMenu);\n    addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>24),{passive:true});\n    nav.classList.toggle("scrolled",scrollY>24);'''
+          if old in s: s=s.replace(old,new,1)
+          anchor='''    .hero-copy-wrap{position:relative;z-index:2}'''
+          replacement='''    .hero-copy-wrap{position:relative;z-index:2}\n    .hero-copy-wrap:before{content:"";position:absolute;inset:-28px -38px -28px -28px;border:1px solid rgba(0,255,136,.055);border-radius:24px;pointer-events:none;opacity:.7}\n    .hero-copy-wrap > *{position:relative}'''
+          if anchor in s and '.hero-copy-wrap:before' not in s: s=s.replace(anchor,replacement,1)
+          p.write_text(s,encoding='utf-8')
+      - name: Commit and clean up
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/apply-phase1.yml
+          git add index.html .github/workflows/apply-phase1.yml
+          git commit -m "Enhance navbar mobile menu and hero"
+          git push
