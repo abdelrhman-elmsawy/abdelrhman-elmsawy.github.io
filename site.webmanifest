@@ -1,0 +1,14 @@
+{
+  "name": "Abdelrhman Elmsawy | Network Security & Pentesting",
+  "short_name": "AE Security",
+  "description": "Portfolio of Abdelrhman Elmsawy focused on networking, network security, vulnerability assessment and penetration testing.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050907",
+  "theme_color": "#07110d",
+  "icons": [
+    {"src":"./favicon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"./favicon-512.png","sizes":"512x512","type":"image/png"}
+  ]
+}
