@@ -307,6 +307,30 @@
     @media(max-width:680px){.focus-grid{grid-template-columns:1fr}.focus-card{grid-template-columns:45px 1fr;padding:18px;gap:12px}.focus-icon{width:42px;height:42px}.roadmap{display:grid;grid-template-columns:1fr;gap:8px;overflow:visible}.road-line{width:1px;height:18px;margin-left:24px}.road-step{min-width:0;padding:16px}.lab-panel{padding:20px;gap:20px}.lab-console{font-size:10px;padding:13px}.metric-grid{grid-template-columns:1fr 1fr}.metric-card{padding:17px}.metric-value{font-size:27px}.metric-label{font-size:8px}.hero-role span{margin:0 2px}}
     @media(max-width:380px){.metric-grid{grid-template-columns:1fr}.metric-label{min-height:0}}
 
+
+    /* PHASE 2 — PROJECTS + SECURITY LAB */
+    .project{cursor:pointer}
+    .project-media{background:radial-gradient(circle at 50% 35%,rgba(0,255,136,.08),transparent 58%),linear-gradient(135deg,rgba(0,255,136,.05),rgba(0,217,255,.035))}
+    .project:hover .project-media{border-color:rgba(0,255,136,.28);box-shadow:inset 0 0 35px rgba(0,255,136,.045)}
+    .project-meta{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:14px;padding-top:12px;border-top:1px dashed rgba(0,255,136,.10)}
+    .project-meta span{font:9px "Share Tech Mono";color:var(--muted);letter-spacing:.7px}
+    .project-meta b{font-weight:400;color:var(--green)}
+    .project-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+    .project-tools span{font:8px "Share Tech Mono";padding:4px 6px;border:1px solid rgba(0,217,255,.16);border-radius:5px;color:var(--cyan);background:rgba(0,217,255,.025)}
+    .lab-console{position:relative}
+    .lab-console:before{content:"LIVE";position:absolute;right:12px;top:10px;font:8px "Share Tech Mono";letter-spacing:2px;color:var(--green);opacity:.7}
+    .lab-console div{transition:background .2s,padding-left .2s}
+    .lab-console div:hover{background:rgba(0,255,136,.035);padding-left:5px}
+    .lab-command{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .lab-command button{border:1px solid var(--line);background:rgba(0,255,136,.035);color:var(--green);border-radius:8px;padding:8px 10px;font:9px "Share Tech Mono";cursor:pointer;transition:.2s}
+    .lab-command button:hover{border-color:rgba(0,255,136,.35);transform:translateY(-2px)}
+    .lab-output{margin-top:12px;min-height:58px;padding:11px;border:1px solid rgba(0,255,136,.10);border-radius:9px;background:#020503;color:var(--muted);font:10px/1.7 "Share Tech Mono";white-space:pre-wrap}
+    .modal-project-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;margin-top:20px}
+    .modal-evidence,.modal-side{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(0,255,136,.018)}
+    .modal-media{margin-top:9px;min-height:150px;display:grid;place-items:center;border:1px dashed rgba(0,255,136,.16);border-radius:9px;color:var(--muted);font:10px "Share Tech Mono";text-align:center;padding:15px}
+    .repo-pending{display:block;margin-top:12px;color:var(--muted);font:9px "Share Tech Mono"}
+    @media(max-width:680px){.modal-project-grid{grid-template-columns:1fr}.lab-command button{min-height:40px;flex:1 1 calc(50% - 5px)}}
+
     /* MODAL */
     .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;place-items:center;padding:20px;z-index:2000}
     .modal.open{display:grid}
@@ -888,6 +912,7 @@
             <div class="project-actions">
               <button class="details" data-project="security">VIEW CASE STUDY →</button><a class="repo-link" href="project-2.pdf" target="_blank" rel="noopener">OPEN REPORT ↗</a>
             </div>
+            <div class="project-meta"><span>STACK</span><b>CISCO · ACL · NAT · DHCP</b></div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">JAN–FEB 2026</span><span class="mono" style="font-size:9px;color:var(--cyan)">LAB / SIMULATION</span></div>
           </article>
 
@@ -902,6 +927,7 @@
             <div class="project-actions">
               <button class="details" data-project="network">VIEW CASE STUDY →</button><a class="repo-link" href="project-1.pdf" target="_blank" rel="noopener">OPEN REPORT ↗</a>
             </div>
+            <div class="project-meta"><span>STACK</span><b>VLAN · OSPF · NAT/PAT · SSH</b></div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">AUG–SEP 2025</span><span class="mono" style="font-size:9px;color:var(--cyan)">PACKET TRACER</span></div>
           </article>
 
@@ -935,6 +961,7 @@
             <div class="project-actions">
               <button class="details" data-project="pentest">VIEW DETAILS →</button>
             </div>
+            <div class="project-meta"><span>STACK</span><b>NMAP · WIRESHARK · BURP · KALI</b></div>
             <div class="project-footer"><span class="mono" style="font-size:10px;color:var(--muted)">LAB WORK</span><span class="mono" style="font-size:9px;color:var(--cyan)">CONTROLLED LAB</span></div>
           </article>
         </div>
@@ -968,12 +995,19 @@
             <p class="lab-intro">A practical environment for developing security assessment skills through controlled reconnaissance, enumeration, traffic analysis, vulnerability assessment and testing workflows.</p>
             <div class="lab-status"><span class="dot"></span> LAB STATUS: ACTIVE · CONTROLLED ENVIRONMENT</div>
           </div>
-          <div class="lab-console">
-            <div><span class="log-ok">[01]</span> Reconnaissance <b>READY</b></div>
+          <div>
+            <div class="lab-console">
+              <div><span class="log-ok">[01]</span> Reconnaissance <b>READY</b></div>
             <div><span class="log-ok">[02]</span> Enumeration <b>READY</b></div>
             <div><span class="log-info">[03]</span> Vulnerability Assessment <b>ACTIVE</b></div>
             <div><span class="log-info">[04]</span> Security Testing <b>ACTIVE</b></div>
-            <div><span class="log-warn">[05]</span> Reporting & Remediation <b>READY</b></div>
+              <div><span class="log-warn">[05]</span> Reporting & Remediation <b>READY</b></div>
+            </div>
+            <div class="lab-command" aria-label="Security lab command shortcuts">
+              <button data-lab-cmd="recon">$ recon</button><button data-lab-cmd="enum">$ enum</button><button data-lab-cmd="scan">$ vuln-scan</button><button data-lab-cmd="report">$ report</button>
+            </div>
+            <div class="lab-output" id="labOutput">$ lab --status
+Controlled environment ready. Choose a workflow command.</div>
           </div>
         </div>
       </div>
@@ -1287,6 +1321,17 @@
     const out=document.getElementById("terminalOutput");let li=0;
     function addLog(){const [cls,txt]=logs[li%logs.length];const d=document.createElement("div");d.className=cls;d.textContent=txt;out.appendChild(d);out.scrollTop=out.scrollHeight;li++;setTimeout(addLog,li%logs.length===0?2600:500+Math.random()*500)}
     setTimeout(addLog,300);
+
+
+    // Phase 2 — interactive controlled lab console
+    const labOutput=document.getElementById("labOutput");
+    const labMessages={
+      recon:"$ recon\n[ok] Authorized lab scope loaded\n[ok] Host discovery workflow ready\n[next] Enumerate exposed services before assessment.",
+      enum:"$ enum\n[ok] Service enumeration workflow ready\n[info] Collect ports, versions and banners\n[next] Correlate findings with known weaknesses.",
+      scan:"$ vuln-scan\n[ok] Assessment workflow initialized\n[info] Review evidence, severity and affected assets\n[next] Validate findings manually in the lab.",
+      report:"$ report\n[ok] Reporting template ready\n[info] Finding → evidence → impact → remediation\n[next] Keep conclusions tied to observed evidence."
+    };
+    document.querySelectorAll("[data-lab-cmd]").forEach(btn=>btn.onclick=()=>{labOutput.textContent=labMessages[btn.dataset.labCmd]||"$ lab --help\nNo command selected."});
 
     // Project filters/search
     const cards=[...document.querySelectorAll(".project")], filters=[...document.querySelectorAll(".filter")], search=document.getElementById("projectSearch");
