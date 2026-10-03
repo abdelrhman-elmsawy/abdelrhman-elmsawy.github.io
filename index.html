@@ -74,7 +74,10 @@
     nav{
       position:fixed;top:0;left:0;right:0;width:100%;z-index:10000;background:rgba(5,9,7,.72);
       backdrop-filter:blur(18px);border-bottom:1px solid var(--line);
+      transition:background .25s ease,box-shadow .25s ease,border-color .25s ease;
     }
+    nav.scrolled{background:rgba(5,9,7,.92);border-bottom-color:rgba(0,255,136,.22);box-shadow:0 10px 32px rgba(0,0,0,.24)}
+    [data-theme="light"] nav.scrolled{background:rgba(244,248,246,.96);border-bottom-color:rgba(0,110,65,.20);box-shadow:0 10px 30px rgba(19,53,37,.10)}
     [data-theme="light"] nav{background:rgba(244,248,246,.78)}
     .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
     .brand{display:inline-flex;align-items:center;gap:9px;font:700 14px "Share Tech Mono",monospace;color:var(--green);letter-spacing:2px;text-decoration:none}
@@ -95,6 +98,8 @@
     .hero:before{content:"";position:absolute;width:520px;height:520px;right:-180px;top:-140px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,136,.10),transparent 65%);pointer-events:none}
     .hero:after{content:"";position:absolute;left:-220px;bottom:-260px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(0,217,255,.08);box-shadow:0 0 0 55px rgba(0,217,255,.025),0 0 0 110px rgba(0,217,255,.018);pointer-events:none}
     .hero-copy-wrap{position:relative;z-index:2}
+    .hero-copy-wrap:before{content:"";position:absolute;inset:-28px -38px -28px -28px;border:1px solid rgba(0,255,136,.055);border-radius:24px;pointer-events:none;opacity:.7}
+    .hero-copy-wrap > *{position:relative}
     .hero-portrait{position:relative;z-index:2;align-self:center}
     .profile-frame{width:176px;height:210px;border-radius:42px;padding:5px;position:relative;margin:0 auto 18px;background:linear-gradient(135deg,rgba(0,255,136,.75),rgba(0,217,255,.35),rgba(0,255,136,.1));box-shadow:0 0 45px rgba(0,255,136,.12)}
     .profile-frame:before{content:"";position:absolute;inset:-8px;border:1px solid rgba(0,255,136,.12);border-radius:43px;animation:profilePulse 3s ease-in-out infinite}
@@ -685,7 +690,7 @@
   </style>
 </head>
 
-<body>\n  <main id="main" style="padding-top:70px;">
+<body>
   <div class="progress" id="progress"></div>
 
   <nav>
@@ -1225,9 +1230,14 @@
     updateThemeIcon();
     themeBtn.onclick=()=>{const next=document.documentElement.dataset.theme==="light"?"":"light"; if(next)document.documentElement.dataset.theme=next;else delete document.documentElement.dataset.theme; localStorage.setItem("ae-theme",next);updateThemeIcon()};
 
-    // Mobile menu
-    document.getElementById("menuBtn").onclick=()=>document.getElementById("navLinks").classList.toggle("mobile-open");
-    document.querySelectorAll(".nav-links a").forEach(a=>a.onclick=()=>document.getElementById("navLinks").classList.remove("mobile-open"));
+    // Mobile menu + navbar state
+    const nav=document.querySelector("nav"), menuBtn=document.getElementById("menuBtn"), navLinks=document.getElementById("navLinks");
+    function closeMobileMenu(){navLinks.classList.remove("mobile-open");document.body.classList.remove("nav-open");menuBtn.setAttribute("aria-expanded","false")}
+    menuBtn.setAttribute("aria-expanded","false");
+    menuBtn.onclick=()=>{const open=navLinks.classList.toggle("mobile-open");document.body.classList.toggle("nav-open",open);menuBtn.setAttribute("aria-expanded",String(open))};
+    document.querySelectorAll(".nav-links a").forEach(a=>a.onclick=closeMobileMenu);
+    addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>24),{passive:true});
+    nav.classList.toggle("scrolled",scrollY>24);
 
     // Scroll progress + back-to-top + active nav
     const progress=document.getElementById("progress"), topBtn=document.getElementById("top");
