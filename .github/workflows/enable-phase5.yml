@@ -1,0 +1,46 @@
+name: Enable Phase 5 CSS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  enable-phase5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Link Phase 5 stylesheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          link = '  <link rel="stylesheet" href="./phase5.css">'
+          if link not in text:
+              marker = '  <style>\n'
+              if marker not in text:
+                  raise SystemExit('Could not find the main style block in index.html')
+              text = text.replace(marker, link + '\n\n' + marker, 1)
+              p.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit and push
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "Phase 5 stylesheet is already enabled."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Enable Phase 5 visual polish"
+          git push origin main
