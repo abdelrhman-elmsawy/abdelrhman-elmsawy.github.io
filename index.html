@@ -72,7 +72,7 @@
 
     /* NAV */
     nav{
-      position:sticky;top:0;z-index:1000;background:rgba(5,9,7,.72);
+      position:fixed;top:0;left:0;right:0;width:100%;z-index:10000;background:rgba(5,9,7,.72);
       backdrop-filter:blur(18px);border-bottom:1px solid var(--line);
     }
     [data-theme="light"] nav{background:rgba(244,248,246,.78)}
@@ -685,7 +685,7 @@
   </style>
 </head>
 
-<body>
+<body>\n  <main id="main" style="padding-top:70px;">
   <div class="progress" id="progress"></div>
 
   <nav>
