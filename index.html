@@ -1379,7 +1379,7 @@ Controlled environment ready. Choose a workflow command.</div>
     document.getElementById("modalClose").onclick=closeModal;modal.onclick=e=>{if(e.target===modal)closeModal()};
 
     // Copy email
-    const copyEmailBtn=document.getElementById("copyEmail");
+    const copyEmailBtn=document.getElementById("copyEmail"); // optional control; safe when absent
     if(copyEmailBtn) copyEmailBtn.onclick=async()=>{try{await navigator.clipboard.writeText(EMAIL);const old=copyEmailBtn.textContent;copyEmailBtn.textContent="✓ Copied";setTimeout(()=>copyEmailBtn.textContent=old,1500)}catch{location.href="mailto:"+EMAIL}};
 
     // Certificate links use direct PDF anchors; no JavaScript is required.
@@ -1389,7 +1389,7 @@ Controlled environment ready. Choose a workflow command.</div>
     function closePalette(){palette.classList.remove("open");palette.setAttribute("aria-hidden","true")}
     document.getElementById("paletteBtn").onclick=openPalette;
     palette.onclick=e=>{if(e.target===palette)closePalette()};
-    document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openPalette()}if(e.key==="Escape"){closePalette();closeModal();closeCert()}});
+    document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openPalette()}if(e.key==="Escape"){closePalette();closeModal();if(typeof closeCert==="function") closeCert()}});
     document.querySelectorAll(".command").forEach(c=>c.onclick=()=>{const a=c.dataset.action;if(a==="theme")themeBtn.click();if(a==="cv")location.href="cv.pdf";if(a==="projects")location.href="#projects";if(a==="expertise")location.href="#expertise";if(a==="services")location.href="#services";if(a==="lab")location.href="#lab";if(a==="contact")location.href="#contact";closePalette()});
     paletteInput.oninput=()=>{const q=paletteInput.value.toLowerCase();document.querySelectorAll(".command").forEach(c=>c.style.display=c.textContent.toLowerCase().includes(q)?"flex":"none")};
     paletteInput.onkeydown=e=>{if(e.key==="Enter"){document.querySelector('.command[style*="flex"]')?.click()}};
