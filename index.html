@@ -20,6 +20,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png">
   <link rel="shortcut icon" href="./favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -1376,13 +1377,7 @@ Controlled environment ready. Choose a workflow command.</div>
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden","true");
 }
-    document.getElementById("modalClose").onclick=closeModal;modal.onclick=e=>{if(e.target===modal)closeModal()};
-
-    // Copy email
-    const copyEmailBtn=document.getElementById("copyEmail"); // optional control; safe when absent
-    if(copyEmailBtn) copyEmailBtn.onclick=async()=>{try{await navigator.clipboard.writeText(EMAIL);const old=copyEmailBtn.textContent;copyEmailBtn.textContent="✓ Copied";setTimeout(()=>copyEmailBtn.textContent=old,1500)}catch{location.href="mailto:"+EMAIL}};
-
-    // Certificate links use direct PDF anchors; no JavaScript is required.
+    document.getElementById("modalClose").onclick=closeModal;modal.onclick=e=>{if(e.target===modal)closeModal()};    // Certificate links use direct PDF anchors; no JavaScript is required.
     // Command palette
     const palette=document.getElementById("palette"), paletteInput=document.getElementById("commandInput");
     function openPalette(){palette.classList.add("open");palette.setAttribute("aria-hidden","false");paletteInput.value="";setTimeout(()=>paletteInput.focus(),30)}
