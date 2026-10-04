@@ -6,4 +6,13 @@
 .nav-links a,.btn,.icon-btn,.menu-btn,.chip{transition-timing-function:var(--ease-out)}
 .btn:active,.icon-btn:active,.menu-btn:active{transform:translateY(0) scale(.98)}
 img[loading="lazy"]{content-visibility:auto}
-@media(max-width:700px){.container{width:min(var(--max),calc(100% - 28px))}section{padding:72px 0}.hero-copy-wrap:before{inset:-18px -12px}.btn{min-height:44px}.nav-links a{padding:10px 4px}}
+@media(max-width:700px){
+  .container{width:min(var(--max),calc(100% - 28px))}
+  section{padding:72px 0}
+  .hero-copy-wrap:before{inset:-18px -12px}
+  .btn{min-height:44px}
+  .nav-links a{padding:10px 4px}
+
+  /* Mobile portrait fix: keep the full face/head visible inside the frame. */
+  .profile{object-position:center 20%;}
+}
