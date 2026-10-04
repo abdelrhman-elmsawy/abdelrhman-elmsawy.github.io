@@ -13,6 +13,11 @@ img[loading="lazy"]{content-visibility:auto}
   .btn{min-height:44px}
   .nav-links a{padding:10px 4px}
 
-  /* Mobile portrait fix: keep the full face/head visible inside the frame. */
+  /* Keep the fixed mobile navbar from covering the top of the hero/profile. */
+  .hero{
+    padding-top:130px;
+  }
+
+  /* Keep the full face/head visible inside the portrait frame. */
   .profile{object-position:center 20%;}
 }
