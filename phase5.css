@@ -13,10 +13,11 @@ img[loading="lazy"]{content-visibility:auto}
   .btn{min-height:44px}
   .nav-links a{padding:10px 4px}
 
-  /* The navbar is fixed and also includes the iPhone safe-area inset.
-     The original mobile hero padding was starting underneath it. */
+  /* The mobile navbar is fixed. Reserve enough space for its actual height
+     plus the iPhone safe-area inset before the hero content begins. */
   .hero{
     padding-top:calc(62px + env(safe-area-inset-top) + 38px) !important;
+    margin-top:0 !important;
   }
 
   /* Keep the full face/head visible inside the portrait frame. */
