@@ -471,8 +471,6 @@ Controlled environment ready. Choose a workflow command.</div>
         </div>
       </div>
     </section>
-  </main>
-
 
     <section class="social-profiles reveal" aria-labelledby="socialTitle">
       <div class="container">
@@ -517,6 +515,7 @@ Controlled environment ready. Choose a workflow command.</div>
         </div>
       </div>
     </section>
+  </main>
 
   <footer><span class="footer-brand"><img src="ae-logo.svg" alt="" aria-hidden="true"> <span>Abdelrhman Elmsawy</span></span> · Network Security & Cybersecurity Portfolio · © <span id="year"></span></footer>
 
@@ -575,12 +574,13 @@ Controlled environment ready. Choose a workflow command.</div>
     document.getElementById("year").textContent=new Date().getFullYear();
 
     // Theme
-    const savedTheme=localStorage.getItem("ae-theme");
+    let savedTheme="";
+    try{savedTheme=localStorage.getItem("ae-theme")||""}catch(e){}
     if(savedTheme) document.documentElement.dataset.theme=savedTheme;
     const themeBtn=document.getElementById("themeBtn");
     function updateThemeIcon(){themeBtn.textContent=document.documentElement.dataset.theme==="light"?"☀":"☾"}
     updateThemeIcon();
-    themeBtn.onclick=()=>{const next=document.documentElement.dataset.theme==="light"?"":"light"; if(next)document.documentElement.dataset.theme=next;else delete document.documentElement.dataset.theme; localStorage.setItem("ae-theme",next);updateThemeIcon()};
+    themeBtn.onclick=()=>{const next=document.documentElement.dataset.theme==="light"?"":"light"; if(next)document.documentElement.dataset.theme=next;else delete document.documentElement.dataset.theme; try{localStorage.setItem("ae-theme",next)}catch(e){}updateThemeIcon()};
 
     // Mobile menu + navbar state
     const nav=document.querySelector("nav"), menuBtn=document.getElementById("menuBtn"), navLinks=document.getElementById("navLinks");
@@ -594,8 +594,8 @@ Controlled environment ready. Choose a workflow command.</div>
     // Scroll progress + back-to-top + active nav
     const progress=document.getElementById("progress"), topBtn=document.getElementById("top");
     addEventListener("scroll",()=>{
-      const h=document.documentElement.scrollHeight-innerHeight;
-      progress.style.width=(scrollY/h*100)+"%";
+      const h=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+      progress.style.width=(Math.min(100,Math.max(0,scrollY/h*100)))+"%";
       topBtn.classList.toggle("show",scrollY>600);
     });
     topBtn.onclick=()=>scrollTo({top:0,behavior:"smooth"});
