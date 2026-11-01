@@ -1,6 +1,6 @@
 # Abdelrhman Elmsawy — Cybersecurity Portfolio
 
-> Personal portfolio for **Abdelrhman Elmsawy**, a Communications & Computer Engineering student at Mansoura University focused on **Networking, Network Security, Vulnerability Assessment, and Penetration Testing**.
+> Personal portfolio for **Abdelrhman Elmsawy**, a Communications & Computer Engineering professional focused on **Networking, Network Security, Vulnerability Assessment, and Penetration Testing**.
 
 🌐 **Live Portfolio:** https://abdelrhman-elmsawy.github.io/
 
